@@ -5,14 +5,10 @@ const defaultMeta = {
   title: 'ZY',
   siteName: 'ZY',
   description: 'Development with style.',
-  url: 'https://tsnext-tw.thcl.dev',
+  url: 'https://zy-landing.vercel.app/',
   type: 'website',
   robots: 'follow, index',
-  /**
-   * No need to be filled, will be populated with openGraph function
-   * If you wish to use a normal image, just specify the path below
-   */
-  image: 'https://tsnext-tw.thcl.dev/images/large-og.png',
+  image: 'https://zy-landing.vercel.app/large-og.png',
 };
 
 type SeoProps = {
