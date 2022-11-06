@@ -24,7 +24,7 @@ class MyDocument extends Document {
             crossOrigin='anonymous'
           />
         </Head>
-        <body>
+        <body className='body-app'>
           <Main />
           <NextScript />
         </body>
