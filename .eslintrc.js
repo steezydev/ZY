@@ -12,6 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
+  ignorePatterns: ['!.storybook'],
   rules: {
     'no-unused-vars': 'off',
     'no-console': 'warn',
