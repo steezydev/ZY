@@ -33,6 +33,10 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve?.alias,
       '@': [path.resolve(__dirname, '../src/'), path.resolve(__dirname, '../')],
+      '~': [
+        path.resolve(__dirname, '../public/'),
+        path.resolve(__dirname, '../'),
+      ],
     };
 
     /**
@@ -43,6 +47,28 @@ module.exports = {
       path.resolve(__dirname, '../public'),
       'node_modules',
     ];
+
+    const rules = config.module.rules;
+    const pathToInlineSvg = path.resolve(__dirname, '../public/svg');
+
+    // modify storybook's file-loader rule to avoid conflicts with svgr
+    const fileLoaderRule = rules.find((rule) =>
+      rule.test ? rule.test.test('.svg') : false
+    );
+    fileLoaderRule.exclude = pathToInlineSvg;
+
+    rules.push({
+      test: /\.svg$/,
+      include: pathToInlineSvg,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+          },
+        },
+      ],
+    });
 
     return config;
   },

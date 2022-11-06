@@ -18,13 +18,13 @@ type BadgeVariant =
 
 type Styles = 'bgColor' | 'textColor' | 'border' | 'gradient';
 
-type UpdatedData = {
+type Variants = {
   [key in BadgeVariant]: {
     [key in Styles]?: string;
   };
 };
 
-const variants: UpdatedData = {
+const variants: Variants = {
   ready: { bgColor: 'bg-green', textColor: 'text-darkSecondary' },
   warning: { bgColor: 'bg-yellow', textColor: 'text-darkSecondary' },
   error: { bgColor: 'bg-red', textColor: 'text-white' },
