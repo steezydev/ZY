@@ -35,6 +35,16 @@ module.exports = {
         red: '#FF005C',
         blue: '#0069E3',
       },
+      animation: {
+        slideTop:
+          'slide-top 0.2s cubic-bezier(0.445, 0.050, 0.550, 0.950) both',
+      },
+      keyframes: {
+        'slide-top': {
+          '0%': { transform: 'translateY(10px) translateX(-50%)', opacity: 0 },
+          '100%': { transform: 'translateY(0) translateX(-50%)', opacity: 1 },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
