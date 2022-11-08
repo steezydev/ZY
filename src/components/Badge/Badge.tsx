@@ -44,14 +44,14 @@ export default function Badge({ children, variant }: BadgeProps) {
   return (
     <div
       className={clsxm(
-        'w-fit rounded-lg px-4 py-0.5',
+        'flex w-fit items-center justify-center rounded-md px-3 py-1',
         variants[variant].bgColor ?? '',
         variants[variant].border ?? '',
         variants[variant].gradient ?? ''
       )}
     >
       <span
-        className={`font-accent font-bold uppercase ${
+        className={`inline-block font-accent text-xs font-extrabold uppercase leading-none ${
           variants[variant].textColor ?? 'text-darkSecondary'
         }`}
       >
