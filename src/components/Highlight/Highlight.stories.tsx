@@ -25,7 +25,7 @@ export const Rocket = Template.bind({});
 Rocket.args = { children: 'Rocket page speed with SSG', variant: 'rocket' };
 
 export const Design = Template.bind({});
-Design.args = { children: 'Carefuly crafted design', variant: 'design' };
+Design.args = { children: 'Carefully crafted design', variant: 'design' };
 
 export const Config = Template.bind({});
 Config.args = { children: 'User-friendly product builder', variant: 'config' };
