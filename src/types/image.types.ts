@@ -3,6 +3,7 @@ export interface IImageSize {
 }
 
 export interface IImageFormats {
+  url: string;
   formats: {
     large: IImageSize;
     small: IImageSize;
@@ -16,4 +17,9 @@ export interface Image<T> {
     id: number;
     attributes: T;
   };
+}
+
+export interface ImageArray<T> {
+  id: number;
+  attributes: T;
 }

@@ -1,6 +1,6 @@
 import { BadgeVariant } from '@/types/badge.types';
 import { HighlightData } from '@/types/highlight.types';
-import { IImageFormats, Image } from '@/types/image.types';
+import { IImageFormats, Image, ImageArray } from '@/types/image.types';
 import { TechStack } from '@/types/tech.types';
 
 export interface ProjectData {
@@ -11,6 +11,7 @@ export interface ProjectData {
     description: string;
     isPrivate: boolean;
     link: string;
+    screenshots: { data: ImageArray<IImageFormats>[] };
     image: Image<IImageFormats>;
     highlights: HighlightData[];
     tech_stack: { data: TechStack[] };

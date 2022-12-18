@@ -16,7 +16,6 @@ import { getProjectData } from '@/services/project.services';
 import { ProjectData } from '@/types/project.types';
 import { TechStack } from '@/types/tech.types';
 
-import Proj1 from '~/images/Proj1.png';
 import ArrowL from '~/svg/ArrowL.svg';
 
 interface ProjectProps {
@@ -121,20 +120,26 @@ export default function Project({ projectData }: ProjectProps) {
             </div>
             <div className='hidden h-full overflow-y-scroll lg:block lg:w-3/5 xl:w-4/5'>
               <div className='flex flex-col gap-8 px-10 py-8'>
-                <div className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'>
-                  <Image
-                    src={Proj1}
-                    alt='Description of image'
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                </div>
-                <div className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'>
-                  <Image
-                    src={Proj1}
-                    alt='Description of image'
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                </div>
+                {projectData.attributes.screenshots.data.map(
+                  (screenshot, key) => (
+                    <div
+                      key={`screenshots-${key}`}
+                      className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'
+                    >
+                      <Image
+                        src={
+                          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                          process.env.NEXT_PUBLIC_API_URL! +
+                          screenshot.attributes.url
+                        }
+                        width={3000}
+                        height={3000}
+                        alt='Description of image'
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
