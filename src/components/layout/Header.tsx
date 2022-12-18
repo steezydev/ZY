@@ -1,5 +1,7 @@
-import Link from 'next/link';
 import * as React from 'react';
+
+import CustomLink from '@/components/CustomLink';
+import Logo from '@/components/Logo';
 
 const links = [
   { path: '/projects', name: 'Projects' },
@@ -12,18 +14,12 @@ export default function Header() {
     <header className='absolute top-0 z-50 w-full py-2'>
       <div className='layout'>
         <div className='flex items-center gap-14'>
-          <Link className='decoration' href='/'>
-            <span className='text-glow font-display text-3xl font-bold text-white'>
-              ZY
-            </span>
-          </Link>
+          <Logo />
           <div className='flex gap-5'>
             {links.map(({ path, name }) => (
-              <span className='text-white' key={path}>
-                <Link className='decoration' href={path}>
-                  {name}
-                </Link>
-              </span>
+              <CustomLink key={path} href={path}>
+                {name}
+              </CustomLink>
             ))}
             <span></span>
           </div>

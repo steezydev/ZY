@@ -1,10 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import CustomLink from '@/components/CustomLink';
 import Layout from '@/components/layout/Layout';
+import Lock from '@/components/Lock';
+import Logo from '@/components/Logo';
 import Seo from '@/components/Seo';
 import Stack from '@/components/Stack';
 
@@ -12,6 +15,9 @@ import { getProjectData } from '@/services/project.services';
 
 import { ProjectData } from '@/types/project.types';
 import { TechStack } from '@/types/tech.types';
+
+import Proj1 from '~/images/Proj1.png';
+import ArrowL from '~/svg/ArrowL.svg';
 
 interface ProjectProps {
   id: number;
@@ -24,69 +30,112 @@ export default function Project({ projectData }: ProjectProps) {
       <Seo templateTitle={projectData.attributes.title} />
       <main>
         <section>
-          <div className='min-h-screen'>
-            <div className='absolute top-0 left-0 h-12 w-full rounded-b-3xl bg-greySecondary'></div>
-            <div className='flex min-h-screen w-full flex-row pt-10'>
-              <div className='h-full w-1/5 border-0 border-r-2 border-solid border-[#151515] px-4'>
-                <div className='relative my-7 h-40 w-full'>
-                  <Image
-                    src={
-                      process.env.NEXT_PUBLIC_API_URL +
-                      projectData.attributes.image.data.attributes.formats
-                        .medium.url
-                    }
-                    className='object-contain'
-                    alt='Image'
-                    fill
-                  />
-                </div>
-                <div className='flex flex-col gap-3 border-0 border-b-2 border-solid border-[#686868] px-8 py-4'>
+          <div className='h-screen'>
+            <div className='lg:2/5 relative float-left min-h-screen w-full overflow-y-scroll border-0 border-r-2 border-solid border-[#151515] px-4 backdrop-blur-sm xl:w-1/5'>
+              <div className='flex w-full items-center justify-between border-0 border-b-2 border-solid border-[#151515] py-2'>
+                <CustomLink
+                  icon={
+                    <span className='flex items-center text-2xl'>
+                      <ArrowL />
+                    </span>
+                  }
+                  href='/projects'
+                >
+                  Projects
+                </CustomLink>
+                <Logo />
+              </div>
+              <div className='relative my-3 mt-4 h-40 w-full'>
+                <Image
+                  src={
+                    process.env.NEXT_PUBLIC_API_URL +
+                    projectData.attributes.image.data.attributes.formats.medium
+                      .url
+                  }
+                  className='object-contain'
+                  alt='Image'
+                  fill
+                />
+              </div>
+              <div className='flex flex-col gap-3 border-0 border-b-2 border-solid border-[#686868] py-4 md:px-8'>
+                <div className='flex flex-row items-center gap-2'>
                   <Badge variant={projectData.attributes.status.value}>
                     {projectData.attributes.status.title}
                   </Badge>
-                  <span className='text font-accent font-semibold uppercase text-secondary'>
-                    {projectData.attributes.subtitle}
-                  </span>
-                  <span className='text-2xl font-black text-white md:text-4xl'>
-                    {projectData.attributes.title}
+                  <span className='flex justify-center text-2xl'>
+                    <Lock isClosed={projectData.attributes.isPrivate} />
                   </span>
                 </div>
-                <div className='flex flex-col gap-4 px-8 py-4'>
-                  <Stack>
-                    {projectData.attributes.tech_stack.data.map(
-                      (tech: TechStack, key: number) => (
-                        <Stack.Item
-                          tooltip={tech.attributes.tooltip}
-                          key={`tech-${key}`}
-                        >
-                          <Image
-                            src={
-                              process.env.NEXT_PUBLIC_API_URL +
-                              tech.attributes.icon.data.attributes.url
-                            }
-                            alt='Picture of the author'
-                            width={30}
-                            height={30}
-                          />
-                        </Stack.Item>
-                      )
-                    )}
-                  </Stack>
-                  <span className='leading-5 text-white'>
-                    {projectData.attributes.description}
-                  </span>
-                  <div className='mt-5 flex w-full flex-col gap-4'>
-                    <Button variant='outline' className='w-full'>
+                <span className='text font-accent font-semibold uppercase text-secondary'>
+                  {projectData.attributes.subtitle}
+                </span>
+                <span className='text-4xl font-black text-white'>
+                  {projectData.attributes.title}
+                </span>
+              </div>
+              <div className='flex flex-col gap-4 py-4 md:px-8'>
+                <Stack>
+                  {projectData.attributes.tech_stack.data.map(
+                    (tech: TechStack, key: number) => (
+                      <Stack.Item
+                        tooltip={tech.attributes.tooltip}
+                        key={`tech-${key}`}
+                      >
+                        <Image
+                          src={
+                            process.env.NEXT_PUBLIC_API_URL +
+                            tech.attributes.icon.data.attributes.url
+                          }
+                          alt='Picture of the author'
+                          width={30}
+                          height={30}
+                        />
+                      </Stack.Item>
+                    )
+                  )}
+                </Stack>
+                <span className='text-base leading-5 text-white'>
+                  {projectData.attributes.description}
+                </span>
+                <div className='mt-5 flex w-full flex-col gap-4'>
+                  {projectData.attributes.link != '' ? (
+                    <Link href={projectData.attributes.link} target='_blank'>
+                      <Button variant='solid' className='w-full'>
+                        Visit
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button variant='outline' disabled className='w-full'>
                       Visit
                     </Button>
-                    <div className='flex flex-row justify-around'>
-                      <CustomLink href='#'>Github</CustomLink>
-                      <CustomLink href='#'>Docs</CustomLink>
-                    </div>
+                  )}
+                  <Button variant='outline' className='w-full lg:hidden'>
+                    Preview
+                  </Button>
+                  <div className='flex flex-row justify-around'>
+                    <CustomLink href='#'>Github</CustomLink>
+                    <CustomLink href='#'>Docs</CustomLink>
                   </div>
                 </div>
               </div>
-              <div className='h-full w-3/4'></div>
+            </div>
+            <div className='hidden h-full overflow-y-scroll lg:block lg:w-3/5 xl:w-4/5'>
+              <div className='flex flex-col gap-8 px-10 py-8'>
+                <div className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'>
+                  <Image
+                    src={Proj1}
+                    alt='Description of image'
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
+                <div className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'>
+                  <Image
+                    src={Proj1}
+                    alt='Description of image'
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>

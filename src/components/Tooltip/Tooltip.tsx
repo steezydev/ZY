@@ -7,7 +7,7 @@ interface Tooltip {
 
 export default function Tooltip({ children, tip }: Tooltip) {
   return (
-    <div className='group relative inline-block'>
+    <div className='group relative flex justify-center'>
       <span className='bg-primary inline-flex rounded text-base font-semibold text-white'>
         {children}
       </span>

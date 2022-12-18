@@ -6,6 +6,7 @@ import clsxm from '@/lib/clsxm';
 export interface LinkProps {
   href: string;
   as?: string;
+  newTab?: boolean;
   children: React.ReactNode;
   variant?: 'primary' | 'secondary';
   icon?: React.ReactElement;
@@ -15,24 +16,29 @@ export interface LinkProps {
 const CustomLink = ({
   href,
   as,
+  newTab = false,
   children,
   variant = 'primary',
   icon,
   className,
 }: LinkProps) => {
   return (
-    <Link href={href} as={as}>
-      <span
-        className={clsxm(
-          'slidingLink flex w-fit items-center gap-1 bg-gradient-to-r from-white to-white pb-1',
-          variant == 'primary' && 'text-white',
-          variant == 'secondary' && 'text-secondary',
-          className
-        )}
-      >
-        {icon && icon}
-        {children}
-      </span>
+    <Link href={href} target={newTab ? '_blank' : '_self'} as={as}>
+      <div className='flex items-center'>
+        {icon ? (
+          <span className='flex items-center text-2xl'>{icon}</span>
+        ) : null}
+        <span
+          className={clsxm(
+            'slidingLink flex w-fit items-center gap-1 bg-gradient-to-r from-white to-white text-base',
+            variant == 'primary' && 'text-white',
+            variant == 'secondary' && 'text-secondary',
+            className
+          )}
+        >
+          {children}
+        </span>
+      </div>
     </Link>
   );
 };
