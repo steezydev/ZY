@@ -16,8 +16,12 @@ module.exports = {
         xl: '0.70rem',
         lg: '0.55rem',
       },
+      boxShadow: {
+        darken: '0px 0px 20px 20px rgba(0,0,0,0.2);',
+      },
       dropShadow: {
         glow: '0 35px 35px rgba(255, 255, 255, 0.25)',
+        darkenn: 'var(--shadow-elevation-high)',
       },
       fontFamily: {
         primary: ['Satoshi', ...fontFamily.sans],
@@ -27,7 +31,10 @@ module.exports = {
       colors: {
         secondary: '#B7B7B7',
         darkSecondary: '#171717',
-        dark: '#0A0A0A',
+        greySecondary: '#151515',
+        black: '#060606',
+        white: '#FBFBFB',
+        dark: '#0F0F0F',
         green: '#00ECA5',
         yellow: '#FFF7AB',
         purple: '#9E00FF',

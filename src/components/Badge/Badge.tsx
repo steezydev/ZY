@@ -2,19 +2,13 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
+import { BadgeVariant } from '@/types/badge.types';
+
 interface BadgeProps {
   children: React.ReactNode;
   variant: BadgeVariant;
+  className?: string;
 }
-
-type BadgeVariant =
-  | 'ready'
-  | 'warning'
-  | 'error'
-  | 'dashed'
-  | 'default'
-  | 'info'
-  | 'highlight';
 
 type Styles = 'bgColor' | 'textColor' | 'border' | 'gradient';
 
@@ -40,14 +34,19 @@ const variants: Variants = {
   },
 };
 
-export default function Badge({ children, variant }: BadgeProps) {
+export default function Badge({
+  children,
+  variant,
+  className = '',
+}: BadgeProps) {
   return (
     <div
       className={clsxm(
         'flex w-fit items-center justify-center rounded-md px-3 py-1',
         variants[variant].bgColor ?? '',
         variants[variant].border ?? '',
-        variants[variant].gradient ?? ''
+        variants[variant].gradient ?? '',
+        className
       )}
     >
       <span
