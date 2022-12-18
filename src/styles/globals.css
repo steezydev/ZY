@@ -101,6 +101,14 @@
     box-sizing: border-box;
   }
 
+  p {
+    @apply my-4 text-base;
+  }
+
+  h1 {
+    @apply pt-4;
+  }
+
   body {
     @apply bg-dark;
   }
@@ -169,7 +177,7 @@
     text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
   }
 
-  span.slidingLink {
+  .slidingLink {
     text-decoration: none;
     background-size: 0% 0.098em;
     background-position-y: 100%;
@@ -178,7 +186,7 @@
     transition: background-size 0.2s ease-in-out;
   }
 
-  span.slidingLink:hover {
+  .slidingLink:hover {
     background-size: 100% 0.098em;
     background-position-x: 0%;
   }

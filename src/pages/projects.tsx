@@ -23,7 +23,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
       <Seo templateTitle='Projects' />
 
       <main>
-        <section>
+        <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='min-h-screen pt-28'>
             <div className='layout'>
               <Head slogan='BÜILT DIFFËRËNT'>Projects</Head>

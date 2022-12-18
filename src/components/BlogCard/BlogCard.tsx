@@ -12,21 +12,19 @@ interface BlogCardProps {
 }
 
 function BlogDate({ children }: BlogCardModulesProps) {
-  return (
-    <span className='text-base font-light text-secondary'>{children}</span>
-  );
+  return <span className='text-base text-secondary'>{children}</span>;
 }
 
 function BlogTitle({ children }: BlogCardModulesProps) {
   return (
-    <span className='text-4xl font-black leading-none text-white md:text-6xl'>
+    <span className='text-4xl font-black leading-none text-white md:text-4xl'>
       {children}
     </span>
   );
 }
 
 function BlogBody({ children }: BlogCardModulesProps) {
-  return <span className='leading-5 text-white'>{children}</span>;
+  return <span className='text-base leading-5 text-white'>{children}</span>;
 }
 
 function BlogCard({ children, className }: BlogCardProps) {
