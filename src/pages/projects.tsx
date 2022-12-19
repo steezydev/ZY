@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 
+import Empty from '@/components/Empty';
 import Head from '@/components/Head';
 import Highlight from '@/components/Highlight';
 import Layout from '@/components/layout/Layout';
@@ -28,7 +29,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
             <div className='layout'>
               <Head slogan='BÜILT DIFFËRËNT'>Projects</Head>
             </div>
-            {projects ? (
+            {projects && projects.length != 0 ? (
               <div className='mt-20 flex flex-col'>
                 {projects.map((item: ProjectData, key: number) => (
                   <Link href={`/project/${item.id}`} key={`project-${key}`}>
@@ -126,7 +127,11 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                   </Link>
                 ))}
               </div>
-            ) : null}
+            ) : (
+              <div className='flex h-96 items-center justify-center'>
+                <Empty>There is nothing in here yet ;(</Empty>
+              </div>
+            )}
           </div>
         </section>
       </main>

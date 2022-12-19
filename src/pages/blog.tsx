@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Badge from '@/components/Badge';
 import BlogCard from '@/components/BlogCard';
+import Empty from '@/components/Empty';
 import Head from '@/components/Head';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -24,7 +25,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='layout min-h-screen py-28'>
             <Head slogan='CHËCK EM ÖUT'>Blog</Head>
-            {blogs ? (
+            {blogs && blogs.length > 0 ? (
               <div className='mt-20 flex flex-col md:grid md:grid-cols-2 md:gap-10'>
                 {blogs.map((item: BlogData, key: number) => (
                   <Link
@@ -51,7 +52,11 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                   </Link>
                 ))}
               </div>
-            ) : null}
+            ) : (
+              <div className='flex h-96 items-center justify-center'>
+                <Empty>There is nothing in here yet ;(</Empty>
+              </div>
+            )}
           </div>
         </section>
       </main>
