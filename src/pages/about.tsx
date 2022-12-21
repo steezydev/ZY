@@ -59,45 +59,51 @@ export default function AboutPage({ about }: AboutPageProps) {
                 ZY
               </div>
               <div className='mt-24 flex max-w-[55rem] flex-col gap-16'>
-                <AboutBlock title='About me'>
-                  <div className='text-lg'>{about.attributes.about}</div>
-                </AboutBlock>
-                <AboutBlock title='Skills'>
-                  <div>
-                    {about.attributes.tech_stacks.data.map((tech, key) => (
-                      <div
-                        key={`skill-${key}`}
-                        className='flex flex-col items-center justify-center gap-1'
-                      >
-                        <span className='text-5xl'>
-                          <Next />
-                        </span>
-                        <span className='text-xl'>
-                          {tech.attributes.tooltip}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </AboutBlock>
-                <AboutBlock title='Contact me'>
-                  <div className='flex flex-row items-center justify-center gap-16 text-7xl'>
-                    {about.attributes.telegram ? (
-                      <Link target='_blank' href={about.attributes.telegram}>
-                        <Telegram />
-                      </Link>
-                    ) : null}
-                    {about.attributes.discord ? (
-                      <Link target='_blank' href={about.attributes.discord}>
-                        <Discord />
-                      </Link>
-                    ) : null}
-                    {about.attributes.twitter ? (
-                      <Link target='_blank' href={about.attributes.twitter}>
-                        <Twitter />
-                      </Link>
-                    ) : null}
-                  </div>
-                </AboutBlock>
+                {about.attributes.about ? (
+                  <AboutBlock title='About me'>
+                    <div className='text-lg'>{about.attributes.about}</div>
+                  </AboutBlock>
+                ) : null}
+                {about.attributes.tech_stacks ? (
+                  <AboutBlock title='Skills'>
+                    <div>
+                      {about.attributes.tech_stacks.data.map((tech, key) => (
+                        <div
+                          key={`skill-${key}`}
+                          className='flex flex-col items-center justify-center gap-1'
+                        >
+                          <span className='text-5xl'>
+                            <Next />
+                          </span>
+                          <span className='text-xl'>
+                            {tech.attributes.tooltip}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </AboutBlock>
+                ) : null}
+                {about.attributes.tech_stacks ? (
+                  <AboutBlock title='Contact me'>
+                    <div className='flex flex-row items-center justify-center gap-16 text-7xl'>
+                      {about.attributes.telegram ? (
+                        <Link target='_blank' href={about.attributes.telegram}>
+                          <Telegram />
+                        </Link>
+                      ) : null}
+                      {about.attributes.discord ? (
+                        <Link target='_blank' href={about.attributes.discord}>
+                          <Discord />
+                        </Link>
+                      ) : null}
+                      {about.attributes.twitter ? (
+                        <Link target='_blank' href={about.attributes.twitter}>
+                          <Twitter />
+                        </Link>
+                      ) : null}
+                    </div>
+                  </AboutBlock>
+                ) : null}
               </div>
             </div>
           </div>
@@ -109,6 +115,12 @@ export default function AboutPage({ about }: AboutPageProps) {
 
 export async function getStaticProps() {
   const about = await fetchAbout();
+
+  if (about.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
