@@ -76,7 +76,7 @@ export default function AboutPage({ about }: AboutPageProps) {
                             <Next />
                           </span>
                           <span className='text-xl'>
-                            {tech.attributes.tooltip}
+                            {tech.attributes.title}
                           </span>
                         </div>
                       ))}
@@ -85,7 +85,7 @@ export default function AboutPage({ about }: AboutPageProps) {
                 ) : null}
                 {about.attributes.tech_stacks ? (
                   <AboutBlock title='Contact me'>
-                    <div className='flex flex-row items-center justify-center gap-16 text-7xl'>
+                    <div className='flex flex-row items-center justify-center gap-16 text-5xl md:text-7xl'>
                       {about.attributes.telegram ? (
                         <Link target='_blank' href={about.attributes.telegram}>
                           <Telegram />

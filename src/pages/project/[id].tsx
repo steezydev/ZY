@@ -77,7 +77,7 @@ export default function Project({ projectData }: ProjectProps) {
                   {projectData.attributes.tech_stack.data.map(
                     (tech: TechStack, key: number) => (
                       <Stack.Item
-                        tooltip={tech.attributes.tooltip}
+                        tooltip={tech.attributes.title}
                         key={`tech-${key}`}
                       >
                         <Image
