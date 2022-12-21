@@ -66,7 +66,7 @@ export default function AboutPage({ about }: AboutPageProps) {
                 ) : null}
                 {about.attributes.tech_stacks ? (
                   <AboutBlock title='Skills'>
-                    <div>
+                    <div className='grid grid-cols-2 flex-wrap gap-x-0 gap-y-16 md:flex md:flex-row md:items-center md:justify-around md:gap-5'>
                       {about.attributes.tech_stacks.data.map((tech, key) => (
                         <div
                           key={`skill-${key}`}
