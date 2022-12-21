@@ -13,6 +13,7 @@ import Stack from '@/components/Stack';
 
 import { getProjectData } from '@/services/project.services';
 
+import { LinkData } from '@/types/link.types';
 import { ProjectData } from '@/types/project.types';
 import { TechStack } from '@/types/tech.types';
 
@@ -111,9 +112,18 @@ export default function Project({ projectData }: ProjectProps) {
                   <Button variant='outline' className='w-full lg:hidden'>
                     Preview
                   </Button>
-                  <div className='flex flex-row justify-around'>
-                    <CustomLink href='#'>Github</CustomLink>
-                    <CustomLink href='#'>Docs</CustomLink>
+                  <div className='mt-3 flex flex-row flex-wrap justify-around gap-5 md:mt-0'>
+                    {projectData.attributes.additional_links.map(
+                      (link: LinkData, key: number) => (
+                        <CustomLink
+                          newTab
+                          key={`additional_link-${key}`}
+                          href={link.link}
+                        >
+                          {link.label}
+                        </CustomLink>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

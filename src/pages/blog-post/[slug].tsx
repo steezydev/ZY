@@ -23,9 +23,11 @@ export default function BlogPost({ blogData }: BlogPostProps) {
             <div className='border-0 border-b-2 border-solid border-[#151515] py-12 md:py-20'>
               <div className='layout flex flex-col gap-8'>
                 <div className='flex flex-row items-center gap-7'>
-                  <Badge variant={blogData.attributes.status.value}>
-                    {blogData.attributes.status.title}
-                  </Badge>
+                  {blogData.attributes.status ? (
+                    <Badge variant={blogData.attributes.status.value}>
+                      {blogData.attributes.status.title}
+                    </Badge>
+                  ) : null}
                   <span className='text-base text-secondary'>
                     Tuesday, October 25th 2022
                   </span>

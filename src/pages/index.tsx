@@ -6,13 +6,26 @@ import Seo from '@/components/Seo';
 export default function HomePage() {
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
       <main>
-        <section>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
-            <h1 className='font-display text-5xl text-white'>ZY</h1>
+        <section className='backdrop-blur-sm md:backdrop-blur-none'>
+          <div className='min-h-screen pt-28'>
+            <div className='layout mt-12 flex flex-col items-center pb-16'>
+              <div className='text-glow font-display text-[12rem] font-bold leading-[10rem] text-white'>
+                ZY
+              </div>
+              <div className='mt-24 flex max-w-[55rem] flex-col gap-16'>
+                <div className='text-white'>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu
+                  erat rhoncus, sollicitudin purus ac, tristique lorem.
+                  Phasellus a tincidunt turpis, ac faucibus lacus. Aliquam non
+                  convallis nunc. Vestibulum scelerisque nibh urna, sed
+                  imperdiet urna convallis et. Etiam pharetra pellentesque eros
+                  tincidunt pellentesque.
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

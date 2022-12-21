@@ -39,9 +39,11 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                           <BlogCard.Date>
                             Tuesday, October 25th 2022
                           </BlogCard.Date>
-                          <Badge variant={item.attributes.status.value}>
-                            {item.attributes.status.title}
-                          </Badge>
+                          {item.attributes.status ? (
+                            <Badge variant={item.attributes.status.value}>
+                              {item.attributes.status.title}
+                            </Badge>
+                          ) : null}
                         </div>
                         <BlogCard.Title>{item.attributes.title}</BlogCard.Title>
                         <BlogCard.Body>

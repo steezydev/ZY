@@ -1,6 +1,7 @@
 import { BadgeVariant } from '@/types/badge.types';
 import { HighlightData } from '@/types/highlight.types';
 import { IImageFormats, Image, ImageArray } from '@/types/image.types';
+import { LinkData } from '@/types/link.types';
 import { TechStack } from '@/types/tech.types';
 
 export interface ProjectData {
@@ -20,5 +21,6 @@ export interface ProjectData {
       title: string;
       value: BadgeVariant;
     };
+    additional_links: LinkData[];
   };
 }
