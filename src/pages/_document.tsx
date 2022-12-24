@@ -18,9 +18,23 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
-            href='/fonts/inter-var-latin.woff2'
+            href='/fonts/ClashDisplay-Varibale.ttf'
             as='font'
-            type='font/woff2'
+            type='font/opentype'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
+            href='/fonts/Outfit-Varibale.ttf'
+            as='font'
+            type='font/opentype'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
+            href='/fonts/Satoshi-Varibale.ttf'
+            as='font'
+            type='font/opentype'
             crossOrigin='anonymous'
           />
         </Head>
