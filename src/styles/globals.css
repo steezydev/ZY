@@ -109,6 +109,10 @@
     @apply pt-4;
   }
 
+  html {
+    @apply bg-dark;
+  }
+
   body {
     @apply bg-dark;
   }
