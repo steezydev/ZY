@@ -34,7 +34,20 @@ class MyDocument extends Document {
             as='font'
             crossOrigin='anonymous'
           />
-          <meta name='theme-color' content='#0F0F0F' />
+          <meta
+            name='theme-color'
+            content='#0F0F0F'
+            media='(prefers-color-scheme: light)'
+          />
+          <meta
+            name='theme-color'
+            content='#0F0F0F'
+            media='(prefers-color-scheme: dark)'
+          />
+          <meta
+            name='apple-mobile-web-app-status-bar-style'
+            content='black-translucent'
+          />
         </Head>
         <body className='body-app'>
           <Main />
