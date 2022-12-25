@@ -108,7 +108,7 @@ export default function Project({ projectData }: ProjectProps) {
                   <Button variant='outline' className='w-full lg:hidden'>
                     Preview
                   </Button>
-                  <div className='mt-3 flex flex-row flex-wrap justify-around gap-5 md:mt-0'>
+                  <div className='mt-3 flex flex-row flex-wrap justify-around gap-5 pb-16 md:mt-0'>
                     {projectData.attributes.additional_links.map(
                       (link: LinkData, key: number) => (
                         <CustomLink

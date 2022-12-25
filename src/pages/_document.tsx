@@ -34,6 +34,7 @@ class MyDocument extends Document {
             as='font'
             crossOrigin='anonymous'
           />
+          <meta name='theme-color' content='#0F0F0F' />
         </Head>
         <body className='body-app'>
           <Main />
