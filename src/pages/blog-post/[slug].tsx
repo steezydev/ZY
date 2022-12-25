@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
+import { isoToString } from '@/lib/dates';
+
 import Badge from '@/components/Badge';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -29,7 +31,7 @@ export default function BlogPost({ blogData }: BlogPostProps) {
                     </Badge>
                   ) : null}
                   <span className='text-base text-secondary'>
-                    Tuesday, October 25th 2022
+                    {isoToString(blogData.attributes.publishedAt)}
                   </span>
                 </div>
                 <span className='text-4xl font-black leading-none text-white md:text-6xl'>

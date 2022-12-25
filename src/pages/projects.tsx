@@ -38,7 +38,6 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                         <div className='w-full border-0 border-b-[1px] border-dashed border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
                           <ProjectCard
                             image={
-                              process.env.NEXT_PUBLIC_API_URL +
                               item.attributes.image.data.attributes.formats
                                 .medium.url
                             }
@@ -70,7 +69,6 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                                   >
                                     <Image
                                       src={
-                                        process.env.NEXT_PUBLIC_API_URL +
                                         tech.attributes.icon.data.attributes.url
                                       }
                                       alt='Picture of the author'
@@ -108,10 +106,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                                 >
                                   <Highlight title={highlight.title}>
                                     <Image
-                                      src={
-                                        process.env.NEXT_PUBLIC_API_URL +
-                                        highlight.icon.data.attributes.url
-                                      }
+                                      src={highlight.icon.data.attributes.url}
                                       alt='Picture of the author'
                                       width={28}
                                       height={28}

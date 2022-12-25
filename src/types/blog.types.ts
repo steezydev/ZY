@@ -8,6 +8,7 @@ export interface BlogData {
     description: string;
     text: string;
     slug: string;
+    publishedAt: string;
     status: {
       id: number;
       title: string;

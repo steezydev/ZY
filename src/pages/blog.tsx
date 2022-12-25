@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import * as React from 'react';
 
+import { isoToString } from '@/lib/dates';
+
 import Badge from '@/components/Badge';
 import BlogCard from '@/components/BlogCard';
 import Empty from '@/components/Empty';
@@ -37,7 +39,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                       <BlogCard>
                         <div className='flex flex-row items-center justify-between'>
                           <BlogCard.Date>
-                            Tuesday, October 25th 2022
+                            {isoToString(item.attributes.publishedAt)}
                           </BlogCard.Date>
                           {item.attributes.status ? (
                             <Badge variant={item.attributes.status.value}>

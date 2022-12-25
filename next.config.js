@@ -9,7 +9,11 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
-    domains: ['localhost'],
+    domains: [
+      'localhost',
+      'zy-cms.herokuapp.com',
+      'zy-aws-s3-images-bucket.s3.amazonaws.com',
+    ],
   },
 
   // SVGR

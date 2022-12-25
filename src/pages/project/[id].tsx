@@ -48,7 +48,6 @@ export default function Project({ projectData }: ProjectProps) {
               <div className='relative my-3 mt-4 h-40 w-full'>
                 <Image
                   src={
-                    process.env.NEXT_PUBLIC_API_URL +
                     projectData.attributes.image.data.attributes.formats.medium
                       .url
                   }
@@ -82,10 +81,7 @@ export default function Project({ projectData }: ProjectProps) {
                         key={`tech-${key}`}
                       >
                         <Image
-                          src={
-                            process.env.NEXT_PUBLIC_API_URL +
-                            tech.attributes.icon.data.attributes.url
-                          }
+                          src={tech.attributes.icon.data.attributes.url}
                           alt='Picture of the author'
                           width={30}
                           height={30}
@@ -98,7 +94,7 @@ export default function Project({ projectData }: ProjectProps) {
                   {projectData.attributes.description}
                 </span>
                 <div className='mt-5 flex w-full flex-col gap-4'>
-                  {projectData.attributes.link != '' ? (
+                  {projectData.attributes.link ? (
                     <Link href={projectData.attributes.link} target='_blank'>
                       <Button variant='solid' className='w-full'>
                         Visit
@@ -137,11 +133,7 @@ export default function Project({ projectData }: ProjectProps) {
                       className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'
                     >
                       <Image
-                        src={
-                          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                          process.env.NEXT_PUBLIC_API_URL! +
-                          screenshot.attributes.url
-                        }
+                        src={screenshot.attributes.url}
                         width={3000}
                         height={3000}
                         alt='Description of image'
