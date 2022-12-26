@@ -48,6 +48,7 @@ class MyDocument extends Document {
             name='apple-mobile-web-app-status-bar-style'
             content='black-translucent'
           />
+          <meta name='color-scheme' content='dark'></meta>
         </Head>
         <body className='body-app'>
           <Main />
