@@ -24,7 +24,7 @@ const getPostData = async (slug: string) => {
 const fetchBlogPosts = async () => {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/blogs?populate[status][populate]=*`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/blogs?sort[0]=publishedAt%3Adesc&populate[status][populate]=*`,
       {
         headers: {
           Authorization: process.env.API_TOKEN,
