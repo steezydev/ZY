@@ -14,6 +14,7 @@ export default function Layout({
     <>
       {showHeader ? <Header /> : null}
       {children}
+      {/* <Footer /> */}
     </>
   );
 }

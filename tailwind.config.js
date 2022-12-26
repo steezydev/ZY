@@ -9,6 +9,10 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      cursor: {
+        pointer:
+          "url(data:image/svg+xml,%3Csvg width='27' height='28' viewBox='0 0 27 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.60926 8.12811L24.5188 13.6642C25.1456 13.8969 25.2948 14.7157 24.7904 15.1546L13.3012 25.1506C12.7967 25.5894 12.0065 25.3284 11.8627 24.6754L8.44232 9.14338C8.29235 8.46237 8.95554 7.88537 9.60926 8.12811Z' fill='%230D0D0D' fill-opacity='0.8' stroke='%23EBEBEB'/%3E%3C/svg%3E%0A), pointer",
+      },
       padding: {
         '1px': '1px',
       },

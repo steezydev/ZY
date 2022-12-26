@@ -125,7 +125,7 @@ export default function Project({ projectData }: ProjectProps) {
               </div>
             </div>
             <div className='hidden h-full overflow-y-scroll lg:block lg:w-3/5 xl:w-4/5'>
-              <div className='flex flex-col gap-8 px-10 py-8'>
+              <div className='flex flex-col gap-8 px-32 py-8'>
                 {projectData.attributes.screenshots.data.map(
                   (screenshot, key) => (
                     <div
@@ -133,6 +133,7 @@ export default function Project({ projectData }: ProjectProps) {
                       className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'
                     >
                       <Image
+                        quality={100}
                         src={screenshot.attributes.url}
                         width={3000}
                         height={3000}
