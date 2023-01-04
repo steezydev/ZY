@@ -26,7 +26,7 @@ interface ProjectProps {
 
 export default function Project({ projectData }: ProjectProps) {
   return (
-    <Layout showHeader={false}>
+    <Layout hideHeader hideFooter>
       <Seo templateTitle={projectData.attributes.title} />
       <main>
         <section>
@@ -125,8 +125,22 @@ export default function Project({ projectData }: ProjectProps) {
               </div>
             </div>
             <div className='hidden h-full overflow-y-scroll lg:block lg:w-3/5 xl:w-4/5'>
-              <div className='flex flex-col gap-8 px-32 py-8'>
-                {projectData.attributes.screenshots.data.map(
+              <div className='flex h-full flex-col items-center justify-center gap-8 px-32 py-8'>
+                <div className='relative my-3 mt-4 h-72 w-full'>
+                  <Image
+                    src={
+                      projectData.attributes.image.data.attributes.formats
+                        .medium.url
+                    }
+                    className='object-contain'
+                    alt='Image'
+                    fill
+                  />
+                </div>
+                <span className='text-2xl font-semibold text-footerText'>
+                  There will be a detailed project README...
+                </span>
+                {/* {projectData.attributes.screenshots.data.map(
                   (screenshot, key) => (
                     <div
                       key={`screenshots-${key}`}
@@ -142,7 +156,7 @@ export default function Project({ projectData }: ProjectProps) {
                       />
                     </div>
                   )
-                )}
+                )} */}
               </div>
             </div>
           </div>

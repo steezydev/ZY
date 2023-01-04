@@ -1,20 +1,23 @@
 import * as React from 'react';
 
+import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 
 export default function Layout({
   children,
-  showHeader = true,
+  hideHeader = false,
+  hideFooter = false,
 }: {
   children: React.ReactNode;
-  showHeader?: boolean;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 }) {
   // Put Header or Footer Here
   return (
     <>
-      {showHeader ? <Header /> : null}
+      {!hideHeader ? <Header /> : null}
       {children}
-      {/* <Footer /> */}
+      {!hideFooter ? <Footer /> : null}
     </>
   );
 }

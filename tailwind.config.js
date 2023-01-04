@@ -39,12 +39,14 @@ module.exports = {
         black: '#060606',
         white: '#FBFBFB',
         dark: '#0F0F0F',
+        darker: '#0C0C0C',
         green: '#00ECA5',
         yellow: '#FFF7AB',
         purple: '#9E00FF',
         cyan: '#008A93',
         red: '#FF005C',
         blue: '#0069E3',
+        footerText: '#505050',
       },
       animation: {
         slideTop:

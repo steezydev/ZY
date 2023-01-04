@@ -24,7 +24,7 @@ const getProjectData = async (id: number) => {
 const fetchProjects = async () => {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/projects?sort[0]=publishedAt%3Adesc&populate[image][populate]=*&populate[highlights][populate]=*&populate[tech_stack][populate]=*&populate[status][populate]=*`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/projects?sort[0]=rank%3Aasc&populate[image][populate]=*&populate[highlights][populate]=*&populate[tech_stack][populate]=*&populate[status][populate]=*`,
       {
         headers: {
           Authorization: process.env.API_TOKEN,

@@ -97,7 +97,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                           />
                         </svg>
                         <div className='hidden py-6 lg:block'>
-                          <div className='flex flex-row flex-wrap'>
+                          <div className='flex w-[327px] flex-row flex-wrap'>
                             {item.attributes.highlights.map(
                               (highlight, key) => (
                                 <div

@@ -1,5 +1,11 @@
 import React from 'react';
 
 export default function Footer() {
-  return <footer className='h-16 w-full bg-dark'></footer>;
+  return (
+    <footer className='w-full bg-darker py-5'>
+      <div className='layout flex items-center justify-center text-footerText'>
+        <span>Copyright © 2023 ZY. All Rights Reserved</span>
+      </div>
+    </footer>
+  );
 }
