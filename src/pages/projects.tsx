@@ -38,8 +38,12 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                         <div className='w-full border-0 border-b-[1px] border-dashed border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
                           <ProjectCard
                             image={
-                              item.attributes.image.data.attributes.formats
-                                .medium.url
+                              (
+                                item.attributes.image.data.attributes.formats
+                                  .medium ??
+                                item.attributes.image.data.attributes.formats
+                                  .thumbnail
+                              ).url
                             }
                             className='max-w-full'
                           >
