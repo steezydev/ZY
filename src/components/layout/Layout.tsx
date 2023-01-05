@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import Loading from '@/components/layout/Loading';
 
 export default function Layout({
   children,
@@ -16,6 +17,7 @@ export default function Layout({
   return (
     <>
       {!hideHeader ? <Header /> : null}
+      <Loading className='absolute bottom-10 right-10' />
       {children}
       {!hideFooter ? <Footer /> : null}
     </>
