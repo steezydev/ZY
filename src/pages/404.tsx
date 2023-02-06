@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+
+import Layout from '@/Layout/Layout';
 
 import Sadface from '~/svg/Sadface.svg';
 

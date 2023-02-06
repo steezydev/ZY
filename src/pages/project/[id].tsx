@@ -6,13 +6,13 @@ import React from 'react';
 import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import CustomLink from '@/components/CustomLink';
-import Layout from '@/components/Layout/Layout';
 import Lock from '@/components/Lock';
 import Logo from '@/components/Logo';
 import Readme from '@/components/Readme/Readme';
 import Seo from '@/components/Seo';
 import Stack from '@/components/Stack';
 
+import Layout from '@/Layout/Layout';
 import { getProjectData } from '@/services/project.services';
 import { fetchReadme } from '@/services/readme.services';
 

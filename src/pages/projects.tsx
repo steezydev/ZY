@@ -6,10 +6,11 @@ import * as React from 'react';
 import Empty from '@/components/Empty';
 import Head from '@/components/Head';
 import Highlight from '@/components/Highlight';
-import Layout from '@/components/Layout/Layout';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import Seo from '@/components/Seo';
 import Stack from '@/components/Stack';
+
+import Layout from '@/Layout/Layout';
 
 const MotionStackItem = motion(Stack.Item);
 

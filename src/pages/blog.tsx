@@ -8,9 +8,9 @@ import Badge from '@/components/Badge';
 import BlogCard from '@/components/BlogCard';
 import Empty from '@/components/Empty';
 import Head from '@/components/Head';
-import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
+import Layout from '@/Layout/Layout';
 import { fetchBlogPosts } from '@/services/blog.services';
 
 import { BlogData } from '@/types/blog.types';

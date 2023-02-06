@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import * as React from 'react';
 
-import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+
+import Layout from '@/Layout/Layout';
 
 import ArrowR from '~/svg/ArrowR.svg';
 import DI from '~/svg/DILogo.svg';
