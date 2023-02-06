@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import Loading from '@/components/layout/Loading';
+import Footer from '@/components/Layout/Footer';
+import Header from '@/components/Layout/Header';
+import Loading from '@/components/Layout/Loading';
 
 export default function Layout({
   children,
@@ -13,11 +13,10 @@ export default function Layout({
   hideHeader?: boolean;
   hideFooter?: boolean;
 }) {
-  // Put Header or Footer Here
   return (
     <>
       {!hideHeader ? <Header /> : null}
-      <Loading className='fixed bottom-10 right-10' />
+      <Loading className='fixed bottom-10 right-10 z-50' />
       {children}
       {!hideFooter ? <Footer /> : null}
     </>

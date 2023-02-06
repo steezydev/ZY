@@ -7,7 +7,7 @@ import Badge from '@/components/Badge';
 import BlogCard from '@/components/BlogCard';
 import Empty from '@/components/Empty';
 import Head from '@/components/Head';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
 import { fetchBlogPosts } from '@/services/blog.services';

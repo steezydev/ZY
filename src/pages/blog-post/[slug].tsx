@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { isoToString } from '@/lib/dates';
 
 import Badge from '@/components/Badge';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
 import { getPostData } from '@/services/blog.services';
