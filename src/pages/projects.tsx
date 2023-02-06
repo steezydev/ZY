@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
@@ -9,6 +10,8 @@ import Layout from '@/components/Layout/Layout';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import Seo from '@/components/Seo';
 import Stack from '@/components/Stack';
+
+const MotionStackItem = motion(Stack.Item);
 
 import { fetchProjects } from '@/services/project.services';
 
@@ -23,7 +26,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
     <Layout>
       <Seo templateTitle='Projects' />
 
-      <main>
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='min-h-screen pt-28'>
             <div className='layout'>
@@ -33,7 +36,17 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
               <div className='mt-20 flex flex-col'>
                 {projects.map((item: ProjectData, key: number) => (
                   <Link href={`/project/${item.id}`} key={`project-${key}`}>
-                    <div className='row'>
+                    <motion.div
+                      initial={{ y: 200, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{
+                        delay: key * 0.2,
+                        type: 'spring',
+                        stiffness: 100,
+                        mass: 0.5,
+                      }}
+                      className='row'
+                    >
                       <div className='layout flex flex-row gap-10'>
                         <div className='w-full border-0 border-b-[1px] border-dashed border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
                           <ProjectCard
@@ -67,7 +80,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                             <Stack>
                               {item.attributes.tech_stack.data.map(
                                 (tech, key) => (
-                                  <Stack.Item
+                                  <MotionStackItem
                                     tooltip={tech.attributes.title}
                                     key={`tech-${key}`}
                                   >
@@ -79,7 +92,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                                       width={24}
                                       height={24}
                                     />
-                                  </Stack.Item>
+                                  </MotionStackItem>
                                 )
                               )}
                             </Stack>
@@ -104,9 +117,17 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                           <div className='flex w-[327px] flex-row flex-wrap'>
                             {item.attributes.highlights.map(
                               (highlight, key) => (
-                                <div
+                                <motion.div
                                   key={`highlight-${key}`}
                                   className='flex aspect-square w-1/2 items-center justify-center'
+                                  initial={{ x: 200, opacity: 0 }}
+                                  animate={{ x: 0, opacity: 1 }}
+                                  transition={{
+                                    delay: key * 0.1,
+                                    type: 'spring',
+                                    stiffness: 100,
+                                    mass: 0.8,
+                                  }}
                                 >
                                   <Highlight title={highlight.title}>
                                     <Image
@@ -116,13 +137,13 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                                       height={28}
                                     />
                                   </Highlight>
-                                </div>
+                                </motion.div>
                               )
                             )}
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </Link>
                 ))}
               </div>
@@ -133,7 +154,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
             )}
           </div>
         </section>
-      </main>
+      </motion.main>
     </Layout>
   );
 }

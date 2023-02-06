@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -34,7 +35,16 @@ export default function Project({ projectData, readme }: ProjectProps) {
       <main>
         <section>
           <div className='h-screen'>
-            <div className='lg:2/5 relative float-left min-h-screen w-full overflow-y-scroll border-0 border-r-2 border-solid border-[#151515] px-4 backdrop-blur-sm xl:w-1/5'>
+            <motion.div
+              initial={{ x: -500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 0.4,
+                type: 'spring',
+                mass: 0.45,
+              }}
+              className='lg:2/5 relative float-left min-h-screen w-full overflow-y-scroll border-0 border-r-2 border-solid border-[#151515] px-4 backdrop-blur-sm xl:w-1/5'
+            >
               <div className='flex w-full items-center justify-between border-0 border-b-2 border-solid border-[#151515] py-2'>
                 <CustomLink
                   icon={
@@ -130,8 +140,12 @@ export default function Project({ projectData, readme }: ProjectProps) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className='hidden h-full overflow-y-scroll px-64 py-8 lg:block lg:w-3/5 xl:w-4/5'>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className='hidden h-full overflow-y-scroll px-64 py-8 lg:block lg:w-3/5 xl:w-4/5'
+            >
               {readme ? (
                 <Readme>{readme}</Readme>
               ) : (
@@ -156,7 +170,7 @@ export default function Project({ projectData, readme }: ProjectProps) {
                   </span>
                 </div>
               )}
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>

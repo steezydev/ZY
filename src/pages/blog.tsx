@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import * as React from 'react';
 
@@ -23,7 +24,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
     <Layout>
       <Seo templateTitle='Blog' />
 
-      <main>
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='layout min-h-screen py-28'>
             <Head slogan='CHËCK EM ÖUT'>Blog</Head>
@@ -35,7 +36,17 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                     className='slidingLink border-0 border-b-[1px] border-dashed border-b-[#333333] bg-gradient-to-r from-white to-white py-8 md:border-b-0 md:py-6'
                     key={`blog-${key}`}
                   >
-                    <div className='w-full'>
+                    <motion.div
+                      initial={{ y: 200, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{
+                        delay: key * 0.1,
+                        type: 'spring',
+                        stiffness: 100,
+                        mass: 0.5,
+                      }}
+                      className='w-full'
+                    >
                       <BlogCard>
                         <div className='flex flex-row items-center justify-between'>
                           <BlogCard.Date>
@@ -52,7 +63,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                           {item.attributes.description}
                         </BlogCard.Body>
                       </BlogCard>
-                    </div>
+                    </motion.div>
                   </Link>
                 ))}
               </div>
@@ -63,7 +74,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
             )}
           </div>
         </section>
-      </main>
+      </motion.main>
     </Layout>
   );
 }

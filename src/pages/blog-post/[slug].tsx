@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
@@ -22,7 +23,16 @@ export default function BlogPost({ blogData }: BlogPostProps) {
       <main>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='min-h-screen py-10'>
-            <div className='border-0 border-b-2 border-solid border-[#151515] py-12 md:py-20'>
+            <motion.div
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.4,
+                type: 'spring',
+                mass: 0.45,
+              }}
+              className='border-0 border-b-2 border-solid border-[#151515] py-12 md:py-20'
+            >
               <div className='layout flex flex-col gap-8'>
                 <div className='flex flex-row items-center gap-7'>
                   {blogData.attributes.status ? (
@@ -38,10 +48,19 @@ export default function BlogPost({ blogData }: BlogPostProps) {
                   {blogData.attributes.title}
                 </span>
               </div>
-            </div>
-            <div className='layout mt-10 text-white'>
+            </motion.div>
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.4,
+                type: 'spring',
+                mass: 0.45,
+              }}
+              className='layout mt-10 text-white'
+            >
               <ReactMarkdown>{blogData.attributes.text}</ReactMarkdown>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
