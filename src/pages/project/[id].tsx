@@ -5,13 +5,15 @@ import React from 'react';
 import Badge from '@/components/Badge';
 import Button from '@/components/Button';
 import CustomLink from '@/components/CustomLink';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout';
 import Lock from '@/components/Lock';
 import Logo from '@/components/Logo';
+import Readme from '@/components/Readme/Readme';
 import Seo from '@/components/Seo';
 import Stack from '@/components/Stack';
 
 import { getProjectData } from '@/services/project.services';
+import { fetchReadme } from '@/services/readme.services';
 
 import { LinkData } from '@/types/link.types';
 import { ProjectData } from '@/types/project.types';
@@ -22,9 +24,10 @@ import ArrowL from '~/svg/ArrowL.svg';
 interface ProjectProps {
   id: number;
   projectData: ProjectData;
+  readme: string;
 }
 
-export default function Project({ projectData }: ProjectProps) {
+export default function Project({ projectData, readme }: ProjectProps) {
   return (
     <Layout hideHeader hideFooter>
       <Seo templateTitle={projectData.attributes.title} />
@@ -128,44 +131,31 @@ export default function Project({ projectData }: ProjectProps) {
                 </div>
               </div>
             </div>
-            <div className='hidden h-full overflow-y-scroll lg:block lg:w-3/5 xl:w-4/5'>
-              <div className='flex h-full flex-col items-center justify-center gap-8 px-32 py-8'>
-                <div className='relative my-3 mt-4 h-72 w-full'>
-                  <Image
-                    src={
-                      (
-                        projectData.attributes.image.data.attributes.formats
-                          .medium ??
-                        projectData.attributes.image.data.attributes.formats
-                          .thumbnail
-                      ).url
-                    }
-                    className='object-contain'
-                    alt='Image'
-                    fill
-                  />
+            <div className='hidden h-full overflow-y-scroll px-64 py-8 lg:block lg:w-3/5 xl:w-4/5'>
+              {readme ? (
+                <Readme>{readme}</Readme>
+              ) : (
+                <div className='flex h-full flex-col items-center justify-center gap-8 px-32 py-8'>
+                  <div className='relative my-3 mt-4 h-72 w-full'>
+                    <Image
+                      src={
+                        (
+                          projectData.attributes.image.data.attributes.formats
+                            .medium ??
+                          projectData.attributes.image.data.attributes.formats
+                            .thumbnail
+                        ).url
+                      }
+                      className='object-contain'
+                      alt='Image'
+                      fill
+                    />
+                  </div>
+                  <span className='text-2xl font-semibold text-footerText'>
+                    There will be a detailed project README...
+                  </span>
                 </div>
-                <span className='text-2xl font-semibold text-footerText'>
-                  There will be a detailed project README...
-                </span>
-                {/* {projectData.attributes.screenshots.data.map(
-                  (screenshot, key) => (
-                    <div
-                      key={`screenshots-${key}`}
-                      className='flex w-full shrink overflow-hidden rounded-2xl border-4 border-solid border-greySecondary p-0'
-                    >
-                      <Image
-                        quality={100}
-                        src={screenshot.attributes.url}
-                        width={3000}
-                        height={3000}
-                        alt='Description of image'
-                        style={{ width: '100%', height: 'auto' }}
-                      />
-                    </div>
-                  )
-                )} */}
-              </div>
+              )}
             </div>
           </div>
         </section>
@@ -180,6 +170,7 @@ export async function getServerSideProps({
   params: { id: number };
 }) {
   const projectData = await getProjectData(params.id);
+  const readme = await fetchReadme(projectData.data.attributes.readme_path);
 
   if (projectData.status == 404) {
     return {
@@ -193,6 +184,7 @@ export async function getServerSideProps({
     props: {
       id: params.id,
       projectData: projectData.data,
+      readme: readme.data,
     },
   };
 }

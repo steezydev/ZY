@@ -1,0 +1,27 @@
+.markdown h1 {
+  @apply mb-4 mt-5 text-6xl font-black;
+}
+
+.markdown h2 {
+  @apply mb-3 mt-5;
+}
+
+.markdown h3 {
+  @apply mb-3 mt-5;
+}
+
+.markdown ul {
+  @apply ml-9 mb-1;
+}
+
+.markdown ol {
+  @apply ml-9 mb-1;
+}
+
+.markdown p {
+  @apply m-0 mb-1;
+}
+
+.markdown code {
+  @apply inline-block rounded-md bg-slate-400/10 px-1;
+}
