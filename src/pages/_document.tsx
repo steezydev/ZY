@@ -18,19 +18,19 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
-            href='/fonts/ClashDisplay-Varibale.ttf'
+            href='/fonts/clashdisplay.ttf'
             as='font'
             crossOrigin='anonymous'
           />
           <link
             rel='preload'
-            href='/fonts/Outfit-Varibale.ttf'
+            href='/fonts/outfit.ttf'
             as='font'
             crossOrigin='anonymous'
           />
           <link
             rel='preload'
-            href='/fonts/Satoshi-Varibale.ttf'
+            href='/fonts/satoshi.ttf'
             as='font'
             crossOrigin='anonymous'
           />
