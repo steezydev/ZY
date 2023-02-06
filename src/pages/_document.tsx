@@ -49,6 +49,10 @@ class MyDocument extends Document {
             content='black-translucent'
           />
           <meta name='color-scheme' content='dark'></meta>
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, viewport-fit=cover'
+          />
         </Head>
         <body className='body-app'>
           <Main />
