@@ -5,9 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import { isoToString } from '@/lib/dates';
 
 import Badge from '@/components/Badge';
+import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
-import Layout from '@/Layout/Layout';
 import { getPostData } from '@/services/blog.services';
 
 import { BlogData } from '@/types/blog.types';

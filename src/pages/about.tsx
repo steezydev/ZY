@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 
+import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
-import Layout from '@/Layout/Layout';
 import { fetchAbout } from '@/services/about.services';
 
 import { TechStack } from '@/types/tech.types';
