@@ -17,7 +17,7 @@ export default function Layout({
   return (
     <>
       {!hideHeader ? <Header /> : null}
-      <Loading className='absolute bottom-10 right-10' />
+      <Loading className='fixed bottom-10 right-10' />
       {children}
       {!hideFooter ? <Footer /> : null}
     </>

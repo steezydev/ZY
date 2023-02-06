@@ -48,8 +48,12 @@ export default function Project({ projectData }: ProjectProps) {
               <div className='relative my-3 mt-4 h-40 w-full'>
                 <Image
                   src={
-                    projectData.attributes.image.data.attributes.formats.medium
-                      .url
+                    (
+                      projectData.attributes.image.data.attributes.formats
+                        .medium ??
+                      projectData.attributes.image.data.attributes.formats
+                        .thumbnail
+                    ).url
                   }
                   className='object-contain'
                   alt='Image'
@@ -129,8 +133,12 @@ export default function Project({ projectData }: ProjectProps) {
                 <div className='relative my-3 mt-4 h-72 w-full'>
                   <Image
                     src={
-                      projectData.attributes.image.data.attributes.formats
-                        .medium.url
+                      (
+                        projectData.attributes.image.data.attributes.formats
+                          .medium ??
+                        projectData.attributes.image.data.attributes.formats
+                          .thumbnail
+                      ).url
                     }
                     className='object-contain'
                     alt='Image'
