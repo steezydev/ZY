@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 
@@ -6,43 +7,44 @@ import Seo from '@/components/Seo';
 
 import { fetchAbout } from '@/services/about.services';
 
-import { TechStack } from '@/types/tech.types';
+import { AboutData } from '@/types/about.types';
 
+import DI from '~/svg/DILogo.svg';
 import Discord from '~/svg/Discord.svg';
-import Next from '~/svg/Next.svg';
+import Duhovka from '~/svg/DuhovkaLogo.svg';
 import Telegram from '~/svg/Telegram.svg';
 import Twitter from '~/svg/Twitter.svg';
+import WY from '~/svg/WYLogo.svg';
 
-interface AboutData {
-  id: number;
-  attributes: {
-    about: string;
-    telegram: string;
-    discord: string;
-    twitter: string;
-    tech_stacks: {
-      data: TechStack[];
-    };
-  };
-}
-
-interface AboutBlockProps {
-  title: string;
-  children: React.ReactNode;
-}
+const MotionLink = motion(Link);
 
 interface AboutPageProps {
   about: AboutData;
 }
 
-function AboutBlock({ title, children }: AboutBlockProps) {
+interface AboutLinkProps {
+  href: string;
+  children: React.ReactNode;
+  delay?: number;
+}
+
+function AboutLink({ href, children, delay = 0 }: AboutLinkProps) {
   return (
-    <div className='flex flex-col gap-14 text-white'>
-      <div className='flex w-full items-center justify-center'>
-        <h2 className=' font-display text-4xl font-normal'>{title}</h2>
-      </div>
+    <MotionLink
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        delay,
+        type: 'spring',
+        stiffness: 100,
+        mass: 0.5,
+      }}
+      className='text-5xl md:text-4xl'
+      target='_blank'
+      href={href}
+    >
       {children}
-    </div>
+    </MotionLink>
   );
 }
 
@@ -50,65 +52,70 @@ export default function AboutPage({ about }: AboutPageProps) {
   return (
     <Layout>
       <Seo templateTitle='About' />
-
-      <main>
+      <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
-          <div className='min-h-screen pt-28'>
+          <div className='fixed right-16 bottom-12 hidden flex-col gap-5 md:flex'>
+            <AboutLink delay={1} href={about.attributes.twitter}>
+              <Twitter />
+            </AboutLink>
+            <AboutLink delay={1.1} href={about.attributes.telegram}>
+              <Telegram />
+            </AboutLink>
+            <AboutLink delay={1.2} href={about.attributes.discord}>
+              <Discord />
+            </AboutLink>
+          </div>
+          <div className='min-h-screen pt-16'>
             <div className='layout mt-12 flex flex-col items-center pb-16'>
-              <div className='text-glow font-display text-[12rem] font-bold leading-[10rem] text-white'>
-                ZY
+              <div className='flex flex-col items-center justify-center gap-8 md:w-4/5 md:gap-14'>
+                <motion.div
+                  initial={{ y: -200, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0,
+                    type: 'spring',
+                    stiffness: 100,
+                    mass: 0.5,
+                  }}
+                  className='text-glow w-full text-center font-display text-[11rem] font-bold leading-[13rem] text-white md:text-[16rem]'
+                >
+                  ZY
+                </motion.div>
+                <span className='font-accent text-2xl font-bold md:text-3xl'>
+                  Digital gallery ~ Portfolio
+                </span>
               </div>
-              <div className='mt-24 flex max-w-[55rem] flex-col gap-16'>
-                {about.attributes.about ? (
-                  <AboutBlock title='About me'>
-                    <div className='text-lg'>{about.attributes.about}</div>
-                  </AboutBlock>
-                ) : null}
-                {about.attributes.tech_stacks ? (
-                  <AboutBlock title='Skills'>
-                    <div className='grid grid-cols-2 flex-wrap gap-x-0 gap-y-16 md:flex md:flex-row md:items-center md:justify-around md:gap-5'>
-                      {about.attributes.tech_stacks.data.map((tech, key) => (
-                        <div
-                          key={`skill-${key}`}
-                          className='flex flex-col items-center justify-center gap-1'
-                        >
-                          <span className='text-5xl'>
-                            <Next />
-                          </span>
-                          <span className='text-xl'>
-                            {tech.attributes.title}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </AboutBlock>
-                ) : null}
-                {about.attributes.tech_stacks ? (
-                  <AboutBlock title='Contact me'>
-                    <div className='flex flex-row items-center justify-center gap-16 text-5xl md:text-7xl'>
-                      {about.attributes.telegram ? (
-                        <Link target='_blank' href={about.attributes.telegram}>
-                          <Telegram />
-                        </Link>
-                      ) : null}
-                      {about.attributes.discord ? (
-                        <Link target='_blank' href={about.attributes.discord}>
-                          <Discord />
-                        </Link>
-                      ) : null}
-                      {about.attributes.twitter ? (
-                        <Link target='_blank' href={about.attributes.twitter}>
-                          <Twitter />
-                        </Link>
-                      ) : null}
-                    </div>
-                  </AboutBlock>
-                ) : null}
+              <div className='mt-16 flex max-w-5xl flex-col gap-5'>
+                <div className='text-xl'>{about.attributes.title}</div>
+                <div className='flex w-full flex-row flex-wrap items-center justify-around md:justify-center md:gap-20'>
+                  <span className='text-6xl md:text-8xl'>
+                    <WY />
+                  </span>
+                  <span className='text-7xl md:text-[10rem]'>
+                    <Duhovka />
+                  </span>
+                  <span className='text-7xl md:text-[10rem]'>
+                    <DI />
+                  </span>
+                </div>
+                <div className='text-base'>{about.attributes.about}</div>
+              </div>
+
+              <div className='mt-14 flex w-full flex-row items-center justify-around md:hidden'>
+                <AboutLink delay={1} href={about.attributes.twitter}>
+                  <Twitter />
+                </AboutLink>
+                <AboutLink delay={1.1} href={about.attributes.telegram}>
+                  <Telegram />
+                </AboutLink>
+                <AboutLink delay={1.2} href={about.attributes.discord}>
+                  <Discord />
+                </AboutLink>
               </div>
             </div>
           </div>
         </section>
-      </main>
+      </motion.main>
     </Layout>
   );
 }
