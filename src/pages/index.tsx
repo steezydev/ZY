@@ -20,7 +20,6 @@ export default function HomePage() {
   return (
     <Layout>
       <Seo />
-
       <main>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='min-h-screen pt-16 md:pt-28'>

@@ -55,7 +55,7 @@ function ProjectCard({ children, image, className }: ProjectCardProps) {
         className
       )}
     >
-      <div className='relative block h-32 w-full md:hidden'>
+      <div className='relative mb-4 block h-32 w-full md:mb-0 md:hidden'>
         <Image src={image} className='object-contain' alt='Image' fill />
       </div>
       <div className='flex w-full flex-col gap-3 md:w-3/5 md:gap-6'>
