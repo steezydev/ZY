@@ -4,6 +4,7 @@ import React from 'react';
 
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+import Tooltip from '@/components/Tooltip';
 
 import { fetchAbout } from '@/services/about.services';
 
@@ -25,26 +26,29 @@ interface AboutPageProps {
 interface AboutLinkProps {
   href: string;
   children: React.ReactNode;
+  title?: string;
   delay?: number;
 }
 
-function AboutLink({ href, children, delay = 0 }: AboutLinkProps) {
+function AboutLink({ href, children, title, delay = 0 }: AboutLinkProps) {
   return (
-    <MotionLink
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        delay,
-        type: 'spring',
-        stiffness: 100,
-        mass: 0.5,
-      }}
-      className='text-5xl md:text-4xl'
-      target='_blank'
-      href={href}
-    >
-      {children}
-    </MotionLink>
+    <Tooltip tip={title}>
+      <MotionLink
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          delay,
+          type: 'spring',
+          stiffness: 100,
+          mass: 0.5,
+        }}
+        className='text-5xl md:text-4xl'
+        target='_blank'
+        href={href}
+      >
+        {children}
+      </MotionLink>
+    </Tooltip>
   );
 }
 
@@ -55,13 +59,25 @@ export default function AboutPage({ about }: AboutPageProps) {
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
           <div className='fixed right-16 bottom-12 hidden flex-col gap-5 md:flex'>
-            <AboutLink delay={1} href={about.attributes.twitter}>
+            <AboutLink
+              title='Twitter'
+              delay={1}
+              href={about.attributes.twitter}
+            >
               <Twitter />
             </AboutLink>
-            <AboutLink delay={1.1} href={about.attributes.telegram}>
+            <AboutLink
+              title='Telegram'
+              delay={1.1}
+              href={about.attributes.telegram}
+            >
               <Telegram />
             </AboutLink>
-            <AboutLink delay={1.2} href={about.attributes.discord}>
+            <AboutLink
+              title='Discord'
+              delay={1.2}
+              href={about.attributes.discord}
+            >
               <Discord />
             </AboutLink>
           </div>
