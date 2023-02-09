@@ -13,6 +13,8 @@ import Stack from '@/components/Stack';
 
 const MotionStackItem = motion(Stack.Item);
 
+import SlideBlock from '@/components/SlideBlock/SlideBlock';
+
 import { fetchProjects } from '@/services/project.services';
 
 import { ProjectData } from '@/types/project.types';
@@ -36,17 +38,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
               <div className='mt-20 flex flex-col'>
                 {projects.map((item: ProjectData, key: number) => (
                   <Link href={`/project/${item.id}`} key={`project-${key}`}>
-                    <motion.div
-                      initial={{ y: 200, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: key * 0.2,
-                        type: 'spring',
-                        stiffness: 100,
-                        mass: 0.5,
-                      }}
-                      className='row'
-                    >
+                    <SlideBlock tagName='div' delay={key * 0.2} className='row'>
                       <div className='layout flex flex-row gap-10'>
                         <div className='w-full border-0 border-b-[1px] border-dashed border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
                           <ProjectCard
@@ -117,17 +109,13 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                           <div className='flex w-[327px] flex-row flex-wrap'>
                             {item.attributes.highlights.map(
                               (highlight, key) => (
-                                <motion.div
+                                <SlideBlock
+                                  tagName='div'
+                                  delay={key * 0.1}
+                                  mass={0.8}
+                                  direction='left'
                                   key={`highlight-${key}`}
                                   className='flex aspect-square w-1/2 items-center justify-center'
-                                  initial={{ x: 200, opacity: 0 }}
-                                  animate={{ x: 0, opacity: 1 }}
-                                  transition={{
-                                    delay: key * 0.1,
-                                    type: 'spring',
-                                    stiffness: 100,
-                                    mass: 0.8,
-                                  }}
                                 >
                                   <Highlight title={highlight.title}>
                                     <Image
@@ -137,13 +125,13 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                                       height={28}
                                     />
                                   </Highlight>
-                                </motion.div>
+                                </SlideBlock>
                               )
                             )}
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </SlideBlock>
                   </Link>
                 ))}
               </div>

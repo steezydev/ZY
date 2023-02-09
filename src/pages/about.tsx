@@ -4,6 +4,7 @@ import React from 'react';
 
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+import SlideBlock from '@/components/SlideBlock/SlideBlock';
 import Tooltip from '@/components/Tooltip';
 
 import { fetchAbout } from '@/services/about.services';
@@ -16,8 +17,6 @@ import Duhovka from '~/svg/DuhovkaLogo.svg';
 import Telegram from '~/svg/Telegram.svg';
 import Twitter from '~/svg/Twitter.svg';
 import WY from '~/svg/WYLogo.svg';
-
-const MotionLink = motion(Link);
 
 interface AboutPageProps {
   about: AboutData;
@@ -33,21 +32,11 @@ interface AboutLinkProps {
 function AboutLink({ href, children, title, delay = 0 }: AboutLinkProps) {
   return (
     <Tooltip tip={title}>
-      <MotionLink
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          delay,
-          type: 'spring',
-          stiffness: 100,
-          mass: 0.5,
-        }}
-        className='text-5xl md:text-4xl'
-        target='_blank'
-        href={href}
-      >
-        {children}
-      </MotionLink>
+      <SlideBlock offset={100} delay={delay}>
+        <Link className='text-5xl md:text-4xl' target='_blank' href={href}>
+          {children}
+        </Link>
+      </SlideBlock>
     </Tooltip>
   );
 }
@@ -84,19 +73,12 @@ export default function AboutPage({ about }: AboutPageProps) {
           <div className='min-h-screen pt-16'>
             <div className='layout flex flex-col items-center pb-16 md:mt-12'>
               <div className='flex flex-col items-center justify-center gap-8 md:w-4/5 md:gap-14'>
-                <motion.div
-                  initial={{ y: -200, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0,
-                    type: 'spring',
-                    stiffness: 100,
-                    mass: 0.5,
-                  }}
+                <SlideBlock
+                  direction='down'
                   className='text-glow w-full text-center font-display text-[11rem] font-bold leading-[13rem] text-white md:text-[16rem]'
                 >
                   ZY
-                </motion.div>
+                </SlideBlock>
                 <span className='font-accent text-2xl font-bold md:text-3xl'>
                   Digital gallery ~ Portfolio
                 </span>

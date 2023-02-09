@@ -10,6 +10,7 @@ import Empty from '@/components/Empty';
 import Head from '@/components/Head';
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+import SlideBlock from '@/components/SlideBlock/SlideBlock';
 
 import { fetchBlogPosts } from '@/services/blog.services';
 
@@ -36,17 +37,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                     className='slidingLink border-0 border-b-[1px] border-dashed border-b-[#333333] bg-gradient-to-r from-white to-white py-8 md:border-b-0 md:py-6'
                     key={`blog-${key}`}
                   >
-                    <motion.div
-                      initial={{ y: 200, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: key * 0.1,
-                        type: 'spring',
-                        stiffness: 100,
-                        mass: 0.5,
-                      }}
-                      className='w-full'
-                    >
+                    <SlideBlock delay={key * 0.1} className='w-full'>
                       <BlogCard>
                         <div className='flex flex-row items-center justify-between'>
                           <BlogCard.Date>
@@ -63,7 +54,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                           {item.attributes.description}
                         </BlogCard.Body>
                       </BlogCard>
-                    </motion.div>
+                    </SlideBlock>
                   </Link>
                 ))}
               </div>
