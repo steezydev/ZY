@@ -9,7 +9,7 @@ export function openGraph({
   siteName,
   templateTitle,
   description,
-  logo = 'https://zy-landing.vercel.app/images/logo.jpg',
+  logo = 'https://zy-gallery.com/images/large-og.png',
 }: OpenGraphType): string {
   const ogLogo = encodeURIComponent(logo);
   const ogSiteName = encodeURIComponent(siteName.trim());

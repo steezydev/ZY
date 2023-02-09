@@ -3,12 +3,13 @@ import { useRouter } from 'next/router';
 
 const defaultMeta = {
   title: 'ZY',
-  siteName: 'ZY',
-  description: 'Development with style.',
-  url: 'https://zy-landing.vercel.app/',
+  siteName: 'ZY Digital gallery ~ Portfolio',
+  description:
+    "Created in mid-2022 as a cornerstone of the creator's digital identity, ZY embodies the philosophy of imaginative construction and development. At the core of ZY lies the values of freedom, unique style, and innovation, providing a space for endless possibilities and endless growth. Take the first step towards self-expression and join the journey with ZY today",
+  url: 'https://zy-gallery.com',
   type: 'website',
   robots: 'follow, index',
-  image: 'https://zy-landing.vercel.app/large-og.png',
+  image: 'https://zy-gallery.com/images/large-og.png',
 };
 
 type SeoProps = {
