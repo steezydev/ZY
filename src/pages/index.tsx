@@ -20,9 +20,9 @@ export default function HomePage() {
   return (
     <Layout>
       <Seo />
-      <main>
+      <main className='flex-grow'>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
-          <div className='min-h-screen pt-16 md:pt-28'>
+          <div className='pt-16 md:pt-28'>
             <div className='flex flex-row pb-16 md:mt-12'>
               <div className='flex w-full justify-center md:w-1/2'>
                 <div className='flex flex-col items-center justify-center gap-8 md:w-4/5 md:gap-14'>

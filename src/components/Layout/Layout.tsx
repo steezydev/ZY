@@ -14,11 +14,11 @@ export default function Layout({
   hideFooter?: boolean;
 }) {
   return (
-    <>
+    <div className='flex min-h-screen flex-col'>
       {!hideHeader ? <Header /> : null}
       <Loading className='fixed bottom-10 right-10 z-50' />
       {children}
       {!hideFooter ? <Footer /> : null}
-    </>
+    </div>
   );
 }
