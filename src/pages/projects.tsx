@@ -28,7 +28,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
 
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
-          <div className='min-h-screen pt-28'>
+          <div className='min-h-screen pt-20 md:pt-28'>
             <div className='layout'>
               <Head slogan='BÜILT DIFFËRËNT'>Projects</Head>
             </div>

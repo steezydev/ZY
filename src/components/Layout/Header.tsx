@@ -47,9 +47,9 @@ export default function Header() {
         <AnimatePresence>
           {showNav ? (
             <motion.div
-              initial={{ y: -140, opacity: 1 }}
+              initial={{ y: -170, opacity: 1 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -140, opacity: 1 }}
+              exit={{ y: -170, opacity: 1 }}
               transition={{
                 type: 'spring',
                 stiffness: 100,

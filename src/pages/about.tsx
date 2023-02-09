@@ -82,7 +82,7 @@ export default function AboutPage({ about }: AboutPageProps) {
             </AboutLink>
           </div>
           <div className='min-h-screen pt-16'>
-            <div className='layout mt-12 flex flex-col items-center pb-16'>
+            <div className='layout flex flex-col items-center pb-16 md:mt-12'>
               <div className='flex flex-col items-center justify-center gap-8 md:w-4/5 md:gap-14'>
                 <motion.div
                   initial={{ y: -200, opacity: 0 }}

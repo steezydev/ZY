@@ -26,7 +26,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
 
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='backdrop-blur-sm md:backdrop-blur-none'>
-          <div className='layout min-h-screen py-28'>
+          <div className='layout min-h-screen pt-20 md:pt-28'>
             <Head slogan='CHËCK EM ÖUT'>Blog</Head>
             {blogs && blogs.length > 0 ? (
               <div className='mt-20 flex flex-col md:grid md:grid-cols-2 md:gap-10'>
