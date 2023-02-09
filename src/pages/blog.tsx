@@ -37,7 +37,11 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                     className='slidingLink border-0 border-b-[1px] border-dashed border-b-[#333333] bg-gradient-to-r from-white to-white py-8 md:border-b-0 md:py-6'
                     key={`blog-${key}`}
                   >
-                    <SlideBlock delay={key * 0.1} className='w-full'>
+                    <SlideBlock
+                      tagName='div'
+                      delay={key * 0.1}
+                      className='w-full'
+                    >
                       <BlogCard>
                         <div className='flex flex-row items-center justify-between'>
                           <BlogCard.Date>
