@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMeta = {
-  title: 'ZY',
-  siteName: 'ZY Digital gallery ~ Portfolio',
+  title: 'ZY Digital gallery ~ Portfolio',
+  siteName: 'ZY',
   description:
     "Created in mid-2022 as a cornerstone of the creator's digital identity, ZY embodies the philosophy of imaginative construction and development.",
   url: 'https://zy-gallery.com',
