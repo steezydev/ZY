@@ -9,7 +9,7 @@ interface LoadingProps {
 export default function Loading({ className }: LoadingProps) {
   const router = useRouter();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleStart = (url: string) =>
