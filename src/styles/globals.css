@@ -113,6 +113,7 @@
   html {
     @apply bg-dark;
 
+    overflow: auto;
     background-image: url('/svg/WatermarkRight.svg'),
       url('/svg/WatermarkLeft.svg');
     background-repeat: no-repeat;
@@ -130,10 +131,10 @@
       env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
-  html {
+  html,
+  body {
     height: 100%;
     width: 100%;
-    overflow: auto;
   }
 
   a {
