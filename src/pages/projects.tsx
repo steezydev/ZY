@@ -40,7 +40,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                   <Link href={`/project/${item.id}`} key={`project-${key}`}>
                     <SlideBlock tagName='div' delay={key * 0.2} className='row'>
                       <div className='layout flex flex-row gap-10'>
-                        <div className='w-full border-0 border-b-[1px] border-dashed border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
+                        <div className='w-full border-0 border-b-[1px] border-solid border-b-[#333333] py-6 md:w-4/5 md:border-b-0'>
                           <ProjectCard
                             image={
                               (

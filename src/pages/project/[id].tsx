@@ -45,7 +45,7 @@ export default function Project({ projectData, readme }: ProjectProps) {
               }}
               className='lg:2/5 relative float-left min-h-screen w-full overflow-y-scroll border-0 border-r-2 border-solid border-[#151515] px-4 backdrop-blur-sm xl:w-1/5'
             >
-              <div className='flex w-full items-center justify-between border-0 border-b-2 border-solid border-[#151515] py-2'>
+              <div className='flex w-full flex-row-reverse items-center justify-between border-0 border-b-2 border-solid border-[#151515] py-2 md:flex-row'>
                 <CustomLink
                   icon={
                     <span className='flex items-center text-2xl'>

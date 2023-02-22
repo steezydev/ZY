@@ -21,7 +21,7 @@ export default function HomePage() {
     <Layout>
       <Seo />
       <main className='flex-grow'>
-        <section className='backdrop-blur-sm md:backdrop-blur-none'>
+        <section className=''>
           <div className='pt-16 md:pt-28'>
             <div className='flex flex-row pb-16 md:mt-12'>
               <div className='flex w-full justify-center md:w-1/2'>

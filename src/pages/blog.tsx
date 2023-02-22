@@ -34,7 +34,7 @@ export default function BlogPage({ blogs }: BlogPageProps) {
                 {blogs.map((item: BlogData, key: number) => (
                   <Link
                     href={`/blog-post/${item.attributes.slug}`}
-                    className='slidingLink border-0 border-b-[1px] border-dashed border-b-[#333333] bg-gradient-to-r from-white to-white py-8 md:border-b-0 md:py-6'
+                    className='slidingLink border-0 border-b-[1px] border-solid border-b-[#333333] bg-gradient-to-r from-white to-white py-8 md:border-b-0 md:py-6'
                     key={`blog-${key}`}
                   >
                     <SlideBlock

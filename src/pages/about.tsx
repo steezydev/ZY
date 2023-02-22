@@ -12,8 +12,8 @@ import { fetchAbout } from '@/services/about.services';
 import { AboutData } from '@/types/about.types';
 
 import DI from '~/svg/DILogo.svg';
-import Discord from '~/svg/Discord.svg';
 import Duhovka from '~/svg/DuhovkaLogo.svg';
+import Github from '~/svg/Github.svg';
 import Telegram from '~/svg/Telegram.svg';
 import Twitter from '~/svg/Twitter.svg';
 import WY from '~/svg/WYLogo.svg';
@@ -63,11 +63,11 @@ export default function AboutPage({ about }: AboutPageProps) {
               <Telegram />
             </AboutLink>
             <AboutLink
-              title='Discord'
+              title='Github'
               delay={1.2}
               href={about.attributes.discord}
             >
-              <Discord />
+              <Github />
             </AboutLink>
           </div>
           <div className='min-h-screen pt-16'>
@@ -100,14 +100,14 @@ export default function AboutPage({ about }: AboutPageProps) {
               </div>
 
               <div className='mt-14 flex w-full flex-row items-center justify-around md:hidden'>
-                <AboutLink delay={1} href={about.attributes.twitter}>
+                <AboutLink delay={1} href='https://twitter.com/0xsteezy'>
                   <Twitter />
                 </AboutLink>
-                <AboutLink delay={1.1} href={about.attributes.telegram}>
+                <AboutLink delay={1.1} href='https://t.me/therealsteezy'>
                   <Telegram />
                 </AboutLink>
-                <AboutLink delay={1.2} href={about.attributes.discord}>
-                  <Discord />
+                <AboutLink delay={1.2} href='https://github.com/steezydev'>
+                  <Github />
                 </AboutLink>
               </div>
             </div>

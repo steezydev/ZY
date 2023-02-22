@@ -9,6 +9,9 @@ import CustomLink from '@/components/CustomLink';
 import Logo from '@/components/Logo';
 
 import Burger from '~/svg/Burger.svg';
+import Github from '~/svg/Github.svg';
+import Telegram from '~/svg/Telegram.svg';
+import Twitter from '~/svg/Twitter.svg';
 
 const links = [
   { path: '/projects', name: 'Projects' },
@@ -47,30 +50,40 @@ export default function Header() {
         <AnimatePresence>
           {showNav ? (
             <motion.div
-              initial={{ y: -170, opacity: 1 }}
+              initial={{ y: -300, opacity: 1 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -170, opacity: 1 }}
+              exit={{ y: -300, opacity: 1 }}
               transition={{
                 type: 'spring',
                 stiffness: 100,
                 mass: 0.5,
               }}
-              className='bg-dark'
+              className='rounded-b-xl bg-dark'
             >
               <div className='layout pb-2 pt-12'>
                 {links.map(({ path, name }, key) => (
-                  <Link key={path} href={path}>
+                  <Link key={path + key} href={path}>
                     <div
                       className={clsxm(
-                        'py-3',
-                        key != links.length - 1 &&
-                          'border-0 border-b border-solid border-b-[#333333] '
+                        'py-5',
+                        'border-0 border-b border-solid border-b-[#333333]'
                       )}
                     >
-                      <span className='font-display text-lg'>{name}</span>
+                      <span className='font-display text-2xl'>{name}</span>
                     </div>
                   </Link>
                 ))}
+              </div>
+              <div className='flex flex-row items-center justify-around gap-8 px-6 py-5 text-4xl'>
+                <Link href='https://twitter.com/0xsteezy' target='_blank'>
+                  <Twitter />
+                </Link>
+                <Link href='https://t.me/therealsteezy' target='_blank'>
+                  <Telegram />
+                </Link>
+                <Link href='https://github.com/steezydev' target='_blank'>
+                  <Github />
+                </Link>
               </div>
             </motion.div>
           ) : null}

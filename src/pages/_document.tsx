@@ -54,10 +54,6 @@ class MyDocument extends Document {
             content='default'
           />
           <meta name='theme-color' content='#000000' />
-          <meta
-            name='viewport'
-            content='viewport-fit=cover, width=device-width, initial-scale=1, user-scalable=no'
-          ></meta>
         </Head>
         <body className='body-app'>
           <Main />
