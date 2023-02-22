@@ -113,10 +113,6 @@
   html {
     @apply bg-dark;
 
-    height: 100%;
-    width: 100%;
-
-    overflow: auto;
     background-image: url('/svg/WatermarkRight.svg'),
       url('/svg/WatermarkLeft.svg');
     background-repeat: no-repeat;
@@ -129,7 +125,15 @@
 
   body {
     @apply flex flex-col backdrop-blur-sm md:backdrop-blur-none;
-    -webkit-overflow-scrolling: touch;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
   }
 
   a {
