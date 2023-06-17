@@ -20,7 +20,7 @@ function StackItem({ children, tooltip }: StackItemProps) {
 }
 
 function Stack({ children }: StackProps) {
-  return <div className='fle-row flex gap-4'>{children}</div>;
+  return <div className='fle-row flex gap-2'>{children}</div>;
 }
 
 Stack.Item = StackItem;

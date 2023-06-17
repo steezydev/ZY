@@ -20,13 +20,13 @@ export default {
 
 export const Fill = Template.bind({});
 Fill.args = {
-  variant: 'solid',
+  variant: 'primary',
   children: 'Click me',
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
-  variant: 'outline',
+  variant: 'secondary',
   children: 'Click me',
 };
 

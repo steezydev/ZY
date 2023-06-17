@@ -23,7 +23,6 @@ export default {
 export const Primary = Template.bind({});
 Primary.args = {
   href: '#',
-  variant: 'primary',
   children: 'Click me',
   icon: <RocketSvg />,
 };
@@ -31,7 +30,6 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   href: '#',
-  variant: 'secondary',
   children: 'Click me',
   icon: <RocketSvg />,
 };

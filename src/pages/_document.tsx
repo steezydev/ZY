@@ -18,7 +18,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
-            href='/fonts/clashdisplay.ttf'
+            href='/fonts/clashgrotesk_variable.ttf'
             as='font'
             crossOrigin='anonymous'
           />

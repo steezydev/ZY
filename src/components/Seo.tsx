@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMeta = {
-  title: 'ZY ~ Gallery',
-  siteName: 'ZY ~ Gallery',
+  title: 'ZY',
+  siteName: 'ZY',
   description:
     "Created in mid-2022 as a cornerstone of the creator's digital identity, ZY embodies the philosophy of imaginative construction and development.",
   url: 'https://zy-gallery.com',
@@ -24,7 +24,7 @@ export default function Seo(props: SeoProps) {
     ...props,
   };
   meta['title'] = props.templateTitle
-    ? `${props.templateTitle} | ${meta.siteName}`
+    ? `${meta.siteName} // ${props.templateTitle}`
     : meta.title;
 
   return (
