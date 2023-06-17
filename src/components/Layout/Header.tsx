@@ -1,22 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as React from 'react';
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 
 import clsxm from '@/lib/clsxm';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 
+import Button from '@/components/Button/Button';
 import CustomLink from '@/components/CustomLink';
 import Logo from '@/components/Logo';
 
 import Burger from '~/svg/Burger.svg';
-import Github from '~/svg/Github.svg';
-import Telegram from '~/svg/Telegram.svg';
-import Twitter from '~/svg/Twitter.svg';
 
 const links = [
-  { path: '/projects', name: 'Projects' },
-  { path: '/blog', name: 'Blog' },
-  { path: '/about', name: 'About' },
+  { path: '/', name: 'About' },
+  { path: '/projects', name: 'My work' },
+  { path: '/contacts', name: 'Contacts' },
 ];
 
 export default function Header() {
@@ -24,71 +24,92 @@ export default function Header() {
   const [showNav, setShowNav] = React.useState(false);
   useOnClickOutside(mobileNavRef, () => setShowNav(false));
 
+  React.useEffect(() => {
+    document.body.style.overflow = showNav ? 'hidden' : 'auto';
+  }, [showNav]);
+
+  const router = useRouter();
+
   return (
-    <header className='fixed top-0 z-30 w-full' ref={mobileNavRef}>
-      <div className='relative h-full w-full'>
-        <div className='absolute z-40 w-full bg-dark  pt-2'>
-          <div className='layout pb-2'>
-            <div className='flex items-center justify-between gap-14 md:justify-start'>
-              <Logo />
-              <div
-                onClick={() => setShowNav((prev) => !prev)}
-                className='flex items-center text-3xl md:hidden'
-              >
-                <Burger />
-              </div>
-              <div className='hidden gap-5 md:flex'>
-                {links.map(({ path, name }) => (
-                  <CustomLink key={path} href={path}>
-                    {name}
-                  </CustomLink>
-                ))}
-              </div>
-            </div>
-          </div>
+    <header
+      className='mb-12 w-full border-x-0 border-b border-t-0 border-solid border-white/5'
+      ref={mobileNavRef}
+    >
+      <div className='layout flex justify-between md:flex-col md:justify-start md:px-0'>
+        <div className='py-4 md:py-8'>
+          <Logo />
         </div>
-        <AnimatePresence>
-          {showNav ? (
-            <motion.div
-              initial={{ y: -300, opacity: 1 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -300, opacity: 1 }}
-              transition={{
-                type: 'spring',
-                stiffness: 100,
-                mass: 0.5,
-              }}
-              className='rounded-b-xl bg-dark'
+        <div
+          onClick={() => setShowNav((prev) => !prev)}
+          className='flex items-center text-3xl md:hidden'
+        >
+          <Burger />
+        </div>
+        <div className='hidden gap-12 border-y border-x-0 border-solid border-white/5 py-3 font-accent text-sm md:flex'>
+          {links.map(({ path, name }) => (
+            <CustomLink
+              isActive={router.pathname === path}
+              key={path}
+              href={path}
             >
-              <div className='layout pb-2 pt-12'>
-                {links.map(({ path, name }, key) => (
-                  <Link key={path + key} href={path}>
-                    <div
-                      className={clsxm(
-                        'py-5',
-                        'border-0 border-b border-solid border-b-[#333333]'
-                      )}
-                    >
-                      <span className='font-display text-2xl'>{name}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <div className='flex flex-row items-center justify-around gap-8 px-6 py-5 text-4xl'>
-                <Link href='https://twitter.com/0xsteezy' target='_blank'>
-                  <Twitter />
-                </Link>
-                <Link href='https://t.me/therealsteezy' target='_blank'>
-                  <Telegram />
-                </Link>
-                <Link href='https://github.com/steezydev' target='_blank'>
-                  <Github />
-                </Link>
-              </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+              {name}
+            </CustomLink>
+          ))}
+        </div>
       </div>
+      <AnimatePresence>
+        {showNav ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className='relative z-50 h-screen w-full bg-dark'
+          >
+            <div className='layout pb-2 pt-8'>
+              {links.map(({ path, name }, key) => (
+                <Link
+                  onClick={() => router.pathname === path && setShowNav(false)}
+                  key={path + key}
+                  href={path}
+                >
+                  <div
+                    className={clsxm(
+                      'py-5',
+                      'border-0 border-b border-solid border-b-[#333333]'
+                    )}
+                  >
+                    <span className='font-display text-2xl'>{name}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className='flex flex-row items-center justify-around gap-8 px-6 py-5 text-4xl'>
+              <Link href='https://github.com/steezydev' target='_blank'>
+                <BsGithub />
+              </Link>
+              <Link href='https://twitter.com/0xsteezy' target='_blank'>
+                <BsTwitter />
+              </Link>
+              <Link
+                href='https://www.linkedin.com/in/steezy2401/'
+                target='_blank'
+              >
+                <BsLinkedin />
+              </Link>
+            </div>
+            <div className='absolute bottom-28 flex w-full items-center'>
+              <Button
+                onClick={() => setShowNav(false)}
+                variant='secondary'
+                className='layout'
+              >
+                Close
+              </Button>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

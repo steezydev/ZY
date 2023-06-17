@@ -8,9 +8,9 @@ export interface LinkProps {
   as?: string;
   newTab?: boolean;
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
   icon?: React.ReactElement;
   className?: string;
+  isActive?: boolean;
 }
 
 const CustomLink = ({
@@ -18,9 +18,9 @@ const CustomLink = ({
   as,
   newTab = false,
   children,
-  variant = 'primary',
   icon,
   className,
+  isActive,
 }: LinkProps) => {
   return (
     <Link href={href} target={newTab ? '_blank' : '_self'} as={as}>
@@ -30,9 +30,8 @@ const CustomLink = ({
         ) : null}
         <span
           className={clsxm(
-            'slidingLink flex w-fit items-center gap-1 bg-gradient-to-r from-white to-white text-base',
-            variant == 'primary' && 'text-white',
-            variant == 'secondary' && 'text-secondary',
+            'flex w-fit items-center gap-1 text-sm text-white/50 transition-all hover:text-white',
+            isActive && 'text-white',
             className
           )}
         >

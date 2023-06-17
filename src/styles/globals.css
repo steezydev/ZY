@@ -61,6 +61,32 @@
     src: url('/fonts/satoshi.ttf') format('opentype');
   }
 
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/cpmono_plain.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/cpmono_light.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'ClashGrotesk';
+    src: url('/fonts/clashgrotesk_variable.woff2') format('woff2'),
+      url('/fonts/clashgrotesk_variable.woff') format('woff'),
+      url('/fonts/clashgrotesk_variable.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
   /* #region  /**=========== Typography =========== */
   .h0 {
     @apply font-primary text-3xl font-bold md:text-5xl;
@@ -68,12 +94,12 @@
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold md:text-4xl;
+    @apply font-display text-3xl font-medium md:text-5xl;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold md:text-3xl;
+    @apply mb-12 font-display text-3xl font-medium md:text-4xl;
   }
 
   h3,
@@ -88,7 +114,7 @@
 
   body,
   .p {
-    @apply font-primary text-sm md:text-base;
+    @apply font-primary text-lg md:text-base;
   }
 
   a {
@@ -103,7 +129,7 @@
   }
 
   p {
-    @apply my-4 text-base;
+    @apply my-4 text-lg;
   }
 
   h1 {
@@ -144,7 +170,7 @@
 
   .layout {
     /* 1100px */
-    max-width: 79.78rem;
+    max-width: 60rem;
     @apply mx-auto w-11/12;
   }
 

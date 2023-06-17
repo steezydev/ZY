@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface Tooltip {
+interface TooltipProps {
   children: React.ReactNode;
   tip?: string;
 }
 
-export default function Tooltip({ children, tip }: Tooltip) {
+export default function Tooltip({ children, tip }: TooltipProps) {
   return (
     <div className='group relative flex justify-center'>
       <span className='bg-primary inline-flex rounded text-base font-semibold text-white'>

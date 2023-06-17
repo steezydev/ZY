@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-type ButtonVariant = 'outline' | 'solid';
+type ButtonVariant = 'primary' | 'secondary';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -14,7 +14,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({
   children,
-  variant = 'solid',
+  variant = 'primary',
   isLoading = false,
   disabled = false,
   icon,
@@ -24,9 +24,10 @@ const Button = ({
   return (
     <button
       className={clsxm(
-        'group cursor-pointer rounded-xl border-2 border-solid border-white bg-white px-8 py-1.5 transition-all',
-        variant == 'solid' && 'bg-white backdrop-blur-sm hover:bg-[#3C3C3C06]',
-        variant == 'outline' &&
+        'group cursor-pointer rounded-lg border-2 border-solid border-white bg-white px-8 py-1 transition-all',
+        variant == 'primary' &&
+          'bg-white backdrop-blur-sm hover:bg-[#3C3C3C06]',
+        variant == 'secondary' &&
           'bg-[#3C3C3C06] backdrop-blur-sm hover:bg-white',
         (disabled || isLoading) &&
           'border-[#3C3C3C50] bg-[#3C3C3C50] hover:bg-[#3C3C3C50]',
@@ -39,9 +40,9 @@ const Button = ({
 
       <span
         className={clsxm(
-          'font-primary text-base font-bold transition-all',
-          variant == 'solid' && 'text-black group-hover:text-white',
-          variant == 'outline' && 'text-white group-hover:text-black',
+          'font-accent text-sm font-medium transition-all',
+          variant == 'primary' && 'text-dark group-hover:text-white',
+          variant == 'secondary' && 'text-white group-hover:text-black',
           (disabled || isLoading) &&
             'text-[#BEBEBE90] group-hover:text-[#BEBEBE90]'
         )}
