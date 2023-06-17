@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <header
-      className='mb-12 w-full border-x-0 border-b border-t-0 border-solid border-white/5'
+      className='mb-12 w-full border-x-0 border-b border-t-0 border-solid border-white/5 md:border-none'
       ref={mobileNavRef}
     >
       <div className='layout flex justify-between md:flex-col md:justify-start md:px-0'>
