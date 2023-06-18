@@ -38,7 +38,7 @@ export default function Project({ projectData }: ProjectProps) {
             />
           </div>
           <h1 className='mt-10'>{projectData.attributes.title}</h1>
-          <div className='mt-4 mb-6 flex flex-wrap gap-3'>
+          <div className='mt-4 mb-6 flex flex-wrap gap-2'>
             {projectData.attributes.links.map((link: LinkData, key: number) => (
               <Bagelink href={link.link} key={`link-${key}`}>
                 {link.label}
@@ -46,7 +46,7 @@ export default function Project({ projectData }: ProjectProps) {
             ))}
           </div>
           <p>{projectData.attributes.description}</p>
-          <div>
+          <div className='flex flex-col gap-2'>
             <span className='font-accent text-sm text-white/50'>
               Tech stack
             </span>
@@ -60,8 +60,8 @@ export default function Project({ projectData }: ProjectProps) {
                     <Image
                       src={tech.attributes.icon.data.attributes.url}
                       alt='Picture of the author'
-                      width={20}
-                      height={20}
+                      width={25}
+                      height={25}
                     />
                   </Stack.Item>
                 )

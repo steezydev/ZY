@@ -8,7 +8,13 @@ export default function Logo() {
   return (
     <Link className='decoration block w-36 md:w-44' href='/'>
       <div className='relative h-10 w-full'>
-        <Image src={LogoImage} className='object-contain' alt='Image' fill />
+        <Image
+          priority
+          src={LogoImage}
+          className='object-contain'
+          alt='Image'
+          fill
+        />
       </div>
     </Link>
   );

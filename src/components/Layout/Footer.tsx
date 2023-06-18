@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsTwitter } from 'react-icons/bs';
 
 export default function Footer() {
   return (
@@ -13,9 +13,6 @@ export default function Footer() {
           </Link>
           <Link href='https://twitter.com/0xsteezy' target='_blank'>
             <BsTwitter className='text-white/50 transition-all hover:text-white' />
-          </Link>
-          <Link href='https://www.linkedin.com/in/steezy2401/' target='_blank'>
-            <BsLinkedin className='text-white/50 transition-all hover:text-white' />
           </Link>
         </div>
       </div>

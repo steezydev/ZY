@@ -17,7 +17,7 @@ export default function HomePage({ about }: HomePageProps) {
     <Layout>
       <Seo />
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <section className='layout mb-10'>
+        <section className='layout'>
           <h2>Hi, I'm steezy!</h2>
           <p>{about.attributes.about}</p>
         </section>
