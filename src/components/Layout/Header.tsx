@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsTwitter } from 'react-icons/bs';
 
 import clsxm from '@/lib/clsxm';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
@@ -90,12 +90,6 @@ export default function Header() {
               </Link>
               <Link href='https://twitter.com/0xsteezy' target='_blank'>
                 <BsTwitter />
-              </Link>
-              <Link
-                href='https://www.linkedin.com/in/steezy2401/'
-                target='_blank'
-              >
-                <BsLinkedin />
               </Link>
             </div>
             <div className='absolute bottom-28 flex w-full items-center'>
