@@ -18,6 +18,18 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
+            href='/fonts/cpmono_plain.woff'
+            as='font'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
+            href='/fonts/cpmono_light.woff'
+            as='font'
+            crossOrigin='anonymous'
+          />
+          <link
+            rel='preload'
             href='/fonts/clashgrotesk_variable.ttf'
             as='font'
             crossOrigin='anonymous'

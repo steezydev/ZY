@@ -32,11 +32,11 @@ export default function Header() {
 
   return (
     <header
-      className='mb-12 w-full border-x-0 border-b border-t-0 border-solid border-white/5'
+      className='mb-12 w-full border-x-0 border-b border-t-0 border-solid border-white/5 md:border-none'
       ref={mobileNavRef}
     >
       <div className='layout flex justify-between md:flex-col md:justify-start md:px-0'>
-        <div className='py-4 md:py-8'>
+        <div className='flex py-4 md:py-8'>
           <Logo />
         </div>
         <div
@@ -64,7 +64,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className='relative z-50 h-screen w-full bg-dark'
+            className='absolute z-50 h-screen w-full bg-dark'
           >
             <div className='layout pb-2 pt-8'>
               {links.map(({ path, name }, key) => (
