@@ -64,7 +64,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className='relative z-50 h-screen w-full bg-dark'
+            className='absolute z-50 h-screen w-full bg-dark'
           >
             <div className='layout pb-2 pt-8'>
               {links.map(({ path, name }, key) => (
