@@ -36,7 +36,7 @@ export default function Header() {
       ref={mobileNavRef}
     >
       <div className='layout flex justify-between md:flex-col md:justify-start md:px-0'>
-        <div className='py-4 md:py-8'>
+        <div className='flex py-4 md:py-8'>
           <Logo />
         </div>
         <div

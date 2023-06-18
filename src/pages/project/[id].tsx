@@ -38,6 +38,13 @@ export default function Project({ projectData }: ProjectProps) {
             />
           </div>
           <h1 className='mt-10'>{projectData.attributes.title}</h1>
+          <div className='mt-4 mb-6 flex flex-wrap gap-3'>
+            {projectData.attributes.links.map((link: LinkData, key: number) => (
+              <Bagelink href={link.link} key={`link-${key}`}>
+                {link.label}
+              </Bagelink>
+            ))}
+          </div>
           <p>{projectData.attributes.description}</p>
           <div>
             <span className='font-accent text-sm text-white/50'>
@@ -60,18 +67,6 @@ export default function Project({ projectData }: ProjectProps) {
                 )
               )}
             </Stack>
-          </div>
-          <div className='mt-5 mb-14 flex flex-col gap-2'>
-            <span className='font-accent text-sm text-white/50'>Links</span>
-            <div className='flex flex-wrap gap-2'>
-              {projectData.attributes.links.map(
-                (link: LinkData, key: number) => (
-                  <Bagelink href={link.link} key={`link-${key}`}>
-                    {link.label}
-                  </Bagelink>
-                )
-              )}
-            </div>
           </div>
         </section>
       </motion.main>
