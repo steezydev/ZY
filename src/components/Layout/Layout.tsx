@@ -14,12 +14,15 @@ export default function Layout({
   hideFooter?: boolean;
 }) {
   return (
-    <div className='relative flex min-h-screen flex-1 flex-col backdrop-blur-sm md:backdrop-blur-0'>
-      {!hideHeader ? <Header /> : null}
+    <>
+      <div className='flex min-h-screen flex-1 flex-col backdrop-blur-sm md:backdrop-blur-0'>
+        {!hideHeader ? <Header /> : null}
+        {children}
+        <div className='h-12'></div>
+        {!hideFooter ? <Footer /> : null}
+      </div>
+
       <Loading className='fixed bottom-10 right-10 z-50' />
-      {children}
-      <div className='h-12'></div>
-      {!hideFooter ? <Footer /> : null}
-    </div>
+    </>
   );
 }
