@@ -23,35 +23,46 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='layout'>
           {projects && projects.length != 0 ? (
-            <div className='grid grid-cols-1 gap-4 gap-y-10 gap-x-8 md:grid-cols-2 md:gap-y-12'>
+            <div className='grid grid-cols-1 gap-4 gap-y-6 gap-x-8 md:grid-cols-2 md:gap-y-12'>
               {projects.map((item: ProjectData, key: number) => (
-                <Link href={`/project/${item.id}`} key={`project-${key}`}>
-                  <div className='flex w-full flex-row gap-5'>
-                    <div className='relative aspect-square h-32'>
-                      <Image
-                        src={
-                          (
-                            item.attributes.logo.data.attributes.formats
-                              .medium ??
-                            item.attributes.logo.data.attributes.formats
-                              .thumbnail
-                          ).url
-                        }
-                        alt='Project Image'
-                        className='cursor-pointer object-contain'
-                        fill
-                      />
+                <>
+                  <Link
+                    href={`/project/${item.id}`}
+                    key={`project-${key}`}
+                    className='flex flex-col items-center gap-3'
+                  >
+                    <div className='flex w-full flex-row gap-5'>
+                      <div className='relative aspect-square h-32'>
+                        <Image
+                          src={
+                            (
+                              item.attributes.logo.data.attributes.formats
+                                .medium ??
+                              item.attributes.logo.data.attributes.formats
+                                .thumbnail
+                            ).url
+                          }
+                          alt='Project Image'
+                          className='cursor-pointer object-contain'
+                          fill
+                        />
+                      </div>
+                      <div className='flex flex-col gap-2'>
+                        <span className='font-accent text-sm font-medium'>
+                          {item.attributes.title}
+                        </span>
+                        <span className='font-accent text-sm text-white/50'>
+                          {item.attributes.short_description}
+                        </span>
+                      </div>
                     </div>
-                    <div className='flex flex-col gap-2'>
-                      <span className='font-accent text-sm font-medium'>
-                        {item.attributes.title}
-                      </span>
-                      <span className='font-accent text-sm text-white/50'>
-                        {item.attributes.short_description}
-                      </span>
+                  </Link>
+                  {key === projects.length - 1 ? null : (
+                    <div className='flex w-full items-center justify-center md:hidden'>
+                      <div className='w-10/12 border-x-0 border-y-0 border-b border-solid border-white/5 text-center' />
                     </div>
-                  </div>
-                </Link>
+                  )}
+                </>
               ))}
             </div>
           ) : (

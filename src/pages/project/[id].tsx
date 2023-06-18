@@ -38,7 +38,7 @@ export default function Project({ projectData }: ProjectProps) {
             />
           </div>
           <h1 className='mt-10'>{projectData.attributes.title}</h1>
-          <div className='mt-4 mb-6 flex flex-wrap gap-3'>
+          <div className='mt-4 mb-6 flex flex-wrap gap-2'>
             {projectData.attributes.links.map((link: LinkData, key: number) => (
               <Bagelink href={link.link} key={`link-${key}`}>
                 {link.label}

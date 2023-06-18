@@ -45,7 +45,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 ))}
               </div>
             </div>
-            <div className='my-12 flex flex-col gap-5 md:w-1/2'>
+            <div className='mt-12 flex flex-col gap-5 md:w-1/2'>
               <div className='flex flex-col gap-5 md:flex-row'>
                 <CustomInput
                   type='text'
