@@ -46,7 +46,7 @@ export default function Project({ projectData }: ProjectProps) {
             ))}
           </div>
           <p>{projectData.attributes.description}</p>
-          <div>
+          <div className='flex flex-col gap-2'>
             <span className='font-accent text-sm text-white/50'>
               Tech stack
             </span>
@@ -60,8 +60,8 @@ export default function Project({ projectData }: ProjectProps) {
                     <Image
                       src={tech.attributes.icon.data.attributes.url}
                       alt='Picture of the author'
-                      width={20}
-                      height={20}
+                      width={25}
+                      height={25}
                     />
                   </Stack.Item>
                 )
