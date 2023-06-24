@@ -3,9 +3,6 @@ import Link from 'next/link';
 import * as React from 'react';
 
 import Bagelink from '@/components/Bagelink';
-import Button from '@/components/Button/Button';
-import CustomInput from '@/components/CustomInput';
-import CustomTextarea from '@/components/CustomTextarea';
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
@@ -49,7 +46,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 ))}
               </div>
             </div>
-            <div className='mt-12 flex flex-col gap-5 md:w-1/2'>
+            {/* <div className='mt-12 flex flex-col gap-5 md:w-1/2'>
               <div className='flex flex-col gap-5 md:flex-row'>
                 <CustomInput
                   type='text'
@@ -64,7 +61,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
               </div>
               <CustomTextarea placeholder='Message' className='h-48 w-full' />
               <Button>Send a message</Button>
-            </div>
+            </div> */}
           </div>
         </section>
       </motion.main>
