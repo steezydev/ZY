@@ -88,7 +88,7 @@ export default function Header() {
               <Link href='https://github.com/steezydev' target='_blank'>
                 <BsGithub />
               </Link>
-              <Link href='https://twitter.com/0xsteezy' target='_blank'>
+              <Link href='https://twitter.com/steezy_dev' target='_blank'>
                 <BsTwitter />
               </Link>
             </div>
@@ -96,7 +96,7 @@ export default function Header() {
               <Button
                 onClick={() => setShowNav(false)}
                 variant='secondary'
-                className='layout'
+                className='layout h-10'
               >
                 Close
               </Button>
