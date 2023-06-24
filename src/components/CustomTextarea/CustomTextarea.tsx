@@ -8,7 +8,7 @@ function CustomTextarea({ className, ...props }: CustomTextareaProps) {
   return (
     <textarea
       className={clsxm(
-        'border-x-0 border-y-0 border-b-2 border-secondary bg-[#151515] px-2 py-1 font-accent focus:outline-none focus:ring-0',
+        'border-x-0 border-y-0 border-b-2 border-secondary bg-[#151515] px-2 py-1 font-accent font-medium focus:outline-none focus:ring-0',
         className
       )}
       {...props}

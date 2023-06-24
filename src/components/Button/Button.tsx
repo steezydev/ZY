@@ -24,7 +24,7 @@ const Button = ({
   return (
     <button
       className={clsxm(
-        'group cursor-pointer rounded-lg border-2 border-solid border-white bg-white px-8 py-1 transition-all',
+        'group flex cursor-pointer items-center gap-3 rounded-lg border-2 border-solid border-white bg-white px-6 py-1 transition-all',
         variant == 'primary' &&
           'bg-white backdrop-blur-sm hover:bg-[#3C3C3C06]',
         variant == 'secondary' &&
@@ -36,11 +36,23 @@ const Button = ({
       {...props}
       disabled={isLoading || disabled}
     >
-      {icon && <span>{icon}</span>}
+      {icon && (
+        <span
+          className={clsxm(
+            'text-xl transition-all',
+            variant == 'primary' && 'text-dark group-hover:text-white',
+            variant == 'secondary' && 'text-white group-hover:text-black',
+            (disabled || isLoading) &&
+              'text-[#BEBEBE90] group-hover:text-[#BEBEBE90]'
+          )}
+        >
+          {icon}
+        </span>
+      )}
 
       <span
         className={clsxm(
-          'font-accent text-sm font-medium transition-all',
+          'font-accent text-sm font-semibold transition-all',
           variant == 'primary' && 'text-dark group-hover:text-white',
           variant == 'secondary' && 'text-white group-hover:text-black',
           (disabled || isLoading) &&

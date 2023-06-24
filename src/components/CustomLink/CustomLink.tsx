@@ -30,7 +30,7 @@ const CustomLink = ({
         ) : null}
         <span
           className={clsxm(
-            'flex w-fit items-center gap-1 text-sm text-white/50 transition-all hover:text-white',
+            'flex w-fit items-center gap-1 text-sm font-medium text-white/50 transition-all hover:text-white',
             isActive && 'text-white',
             className
           )}

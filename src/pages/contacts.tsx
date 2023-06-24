@@ -28,7 +28,9 @@ export default function ContactsPage({ about }: ContactsPageProps) {
           <div className='layout'>
             <h2>Contact me</h2>
             <div className='mt-5 flex flex-col gap-2'>
-              <span className='font-accent text-sm text-white/50'>Email</span>
+              <span className='font-accent text-sm font-medium text-white/50'>
+                Email
+              </span>
               <span className='font-display text-xl'>
                 <Link href={`mailto:${about.attributes.email}`}>
                   {about.attributes.email}
@@ -36,7 +38,9 @@ export default function ContactsPage({ about }: ContactsPageProps) {
               </span>
             </div>
             <div className='mt-5 flex flex-col gap-2'>
-              <span className='font-accent text-sm text-white/50'>Links</span>
+              <span className='font-accent text-sm font-medium text-white/50'>
+                Socials
+              </span>
               <div className='flex flex-wrap gap-2'>
                 {about.attributes.socials.map((link: LinkData, key: number) => (
                   <Bagelink href={link.link} key={`link-${key}`}>
