@@ -25,7 +25,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
           <div className='layout'>
             <h2>Contact me</h2>
             <div className='mt-5 flex flex-col gap-2'>
-              <span className='font-accent text-sm font-medium text-white/50'>
+              <span className='font-accent text-sm font-light text-white/50'>
                 Email
               </span>
               <span className='font-display text-xl'>
@@ -35,7 +35,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
               </span>
             </div>
             <div className='mt-5 flex flex-col gap-2'>
-              <span className='font-accent text-sm font-medium text-white/50'>
+              <span className='font-accent text-sm font-light text-white/50'>
                 Socials
               </span>
               <div className='flex flex-wrap gap-2'>

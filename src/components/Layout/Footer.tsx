@@ -5,7 +5,7 @@ import { BsGithub, BsTwitter } from 'react-icons/bs';
 export default function Footer() {
   return (
     <footer className='mt-auto h-full w-full py-3 md:py-5'>
-      <div className='layout flex items-center justify-between font-accent text-xs font-semibold text-white/50'>
+      <div className='layout flex items-center justify-between font-accent text-xs font-light text-white/50'>
         <div>© 2023 steezy</div>
         <div className='flex gap-4 text-xl'>
           <Link href='https://github.com/steezydev' target='_blank'>

@@ -48,10 +48,10 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                         />
                       </div>
                       <div className='flex flex-col gap-2'>
-                        <span className='font-accent text-base font-semibold'>
+                        <span className='font-plain font-accent text-base'>
                           {item.attributes.title}
                         </span>
-                        <span className='font-accent text-sm font-medium text-white/50'>
+                        <span className='font-accent text-sm font-light text-white/50'>
                           {item.attributes.short_description}
                         </span>
                       </div>

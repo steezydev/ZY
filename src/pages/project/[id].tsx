@@ -47,7 +47,7 @@ export default function Project({ projectData }: ProjectProps) {
           </div>
           <p>{projectData.attributes.description}</p>
           <div className='flex flex-col gap-2'>
-            <span className='font-accent text-sm font-medium text-white/50'>
+            <span className='font-accent text-sm font-light text-white/50'>
               Tech stack
             </span>
             <Stack>
