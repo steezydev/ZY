@@ -5,6 +5,7 @@ import React from 'react';
 import Bagelink from '@/components/Bagelink';
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
+import SkeletonImage from '@/components/SkeletonImage/SkeletonImage';
 import Stack from '@/components/Stack';
 
 import { getProjectData } from '@/services/project.services';
@@ -17,6 +18,7 @@ interface ProjectProps {
   id: number;
   projectData: ProjectData;
 }
+import ZYLoader from '~/svg/ZYLoader.svg';
 
 export default function Project({ projectData }: ProjectProps) {
   return (
@@ -24,19 +26,17 @@ export default function Project({ projectData }: ProjectProps) {
       <Seo templateTitle={projectData.attributes.title} />
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='layout'>
-          <div className='relative h-48 w-full'>
-            <Image
-              src={
-                (
-                  projectData.attributes.image.data.attributes.formats.medium ??
-                  projectData.attributes.image.data.attributes.formats.thumbnail
-                ).url
-              }
-              className='object-contain'
-              alt='Image'
-              fill
-            />
-          </div>
+          <SkeletonImage
+            src={
+              (
+                projectData.attributes.image.data.attributes.formats.medium ??
+                projectData.attributes.image.data.attributes.formats.thumbnail
+              ).url
+            }
+            fill
+            className='relative h-48 w-full'
+            loaderSvg={<ZYLoader height={152} width={152} className='w-full' />}
+          />
           <h1 className='mt-10'>{projectData.attributes.title}</h1>
           <div className='mt-4 mb-6 flex flex-wrap gap-2'>
             {projectData.attributes.links.map((link: LinkData, key: number) => (
@@ -74,6 +74,7 @@ export default function Project({ projectData }: ProjectProps) {
   );
 }
 
+//TODO: Remove getServerSideProps and fetch data after load
 export async function getServerSideProps({
   params,
 }: {

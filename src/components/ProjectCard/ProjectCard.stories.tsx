@@ -3,8 +3,6 @@ import * as React from 'react';
 
 import ProjectCard from './ProjectCard';
 
-import ProjectLogo from '~/images/project-logo.png';
-
 export default {
   title: 'Components/Project Card',
   component: ProjectCard,
@@ -37,5 +35,4 @@ Default.args = {
       </ProjectCard.Body>
     </>
   ),
-  image: ProjectLogo,
 };
