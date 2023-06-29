@@ -195,7 +195,7 @@
 
   .layout {
     /* 1100px */
-    max-width: 60rem;
+    max-width: 45rem;
     @apply mx-auto w-11/12;
   }
 

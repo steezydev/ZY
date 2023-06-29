@@ -16,7 +16,7 @@ interface ProjectCardModulesProps {
 }
 
 function ProjectTitle({ children }: ProjectCardModulesProps) {
-  return <span className='font-plain font-accent text-base'>{children}</span>;
+  return <span className='font-plain font-accent text-sm'>{children}</span>;
 }
 
 function ProjectBody({ children }: ProjectCardModulesProps) {
@@ -42,7 +42,7 @@ function ProjectBadge({
 function ProjectCard({ children, image, className }: ProjectCardProps) {
   return (
     <div className={clsxm('flex w-full flex-row gap-5', className)}>
-      <div className='relative aspect-square h-32'>
+      <div className='relative aspect-square h-28'>
         <Image
           src={image}
           alt='Project Image'

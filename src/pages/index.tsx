@@ -17,11 +17,14 @@ export default function HomePage() {
           <p>
             I build web and mobile apps for everyone. I dove into the coding
             world back in 2018, and ever since, I've been on a mission to figure
-            out the secret sauce that makes a user experience really pop, and
-            then share that with everyone. I've been part of over 20 projects
-            through the years, and in 2023, I made a big switch to open-source
-            development. It's the best way to learn, meet new people, and have a
-            lot of fun! Come along as I build, learn, and make the code shine!
+            out the secret sauce of the perfect client-side code, and then share
+            that with everyone.
+          </p>
+          <p>
+            I've been part of over 20 projects through the years, and in 2023, I
+            made a big switch to open-source development. It's the best way to
+            learn, meet new people, and have a lot of fun! Come along as I
+            build, learn, and make the code shine!
           </p>
           <div className='mt-12 flex flex-col gap-5 md:flex-row'>
             <Link href='/projects'>
