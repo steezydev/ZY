@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 
 import Empty from '@/components/Empty';
 import Layout from '@/components/Layout/Layout';
+import ProjectCard from '@/components/ProjectCard/ProjectCard';
 import Seo from '@/components/Seo';
 
 import { fetchProjects } from '@/services/project.services';
@@ -31,31 +31,21 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                     key={`project-${key}`}
                     className='flex flex-col items-center gap-3'
                   >
-                    <div className='flex w-full flex-row gap-5'>
-                      <div className='relative aspect-square h-32'>
-                        <Image
-                          src={
-                            (
-                              item.attributes.logo.data.attributes.formats
-                                .medium ??
-                              item.attributes.logo.data.attributes.formats
-                                .thumbnail
-                            ).url
-                          }
-                          alt='Project Image'
-                          className='cursor-pointer object-contain'
-                          fill
-                        />
-                      </div>
-                      <div className='flex flex-col gap-2'>
-                        <span className='font-plain font-accent text-base'>
-                          {item.attributes.title}
-                        </span>
-                        <span className='font-accent text-sm font-light text-white/50'>
-                          {item.attributes.short_description}
-                        </span>
-                      </div>
-                    </div>
+                    <ProjectCard
+                      image={
+                        (
+                          item.attributes.logo.data.attributes.formats.medium ??
+                          item.attributes.logo.data.attributes.formats.thumbnail
+                        ).url
+                      }
+                    >
+                      <ProjectCard.Title>
+                        {item.attributes.title}
+                      </ProjectCard.Title>
+                      <ProjectCard.Body>
+                        {item.attributes.short_description}
+                      </ProjectCard.Body>
+                    </ProjectCard>
                   </Link>
                   {key === projects.length - 1 ? null : (
                     <div className='flex w-full items-center justify-center md:hidden'>
