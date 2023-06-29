@@ -17,8 +17,8 @@ export default function HomePage() {
           <p>
             I build web and mobile apps for everyone. I dove into the coding
             world back in 2018, and ever since, I've been on a mission to figure
-            out the secret sauce of the perfect client-side code, and then share
-            that with everyone.
+            out the secret sauce of the perfect client-side code and share it
+            with everyone.
           </p>
           <p>
             I've been part of over 20 projects through the years, and in 2023, I
