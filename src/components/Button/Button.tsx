@@ -24,7 +24,7 @@ const Button = ({
   return (
     <button
       className={clsxm(
-        'group flex min-h-[2.3rem] cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-solid border-white bg-white px-6 py-1 transition-all',
+        'group flex min-h-[2.3rem] cursor-pointer items-center justify-center gap-3 rounded-md border-2 border-solid border-white bg-white px-6 py-1 transition-all',
         variant == 'primary' &&
           'bg-white backdrop-blur-sm hover:bg-[#3C3C3C06]',
         variant == 'secondary' &&
