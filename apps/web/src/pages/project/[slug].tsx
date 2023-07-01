@@ -11,7 +11,12 @@ import Seo from '@/components/Seo';
 import SkeletonImage from '@/components/SkeletonImage';
 import Stack from '@/components/Stack';
 
-import { LinkData, ProjectData, TechStackData } from '@/types/data.types';
+import {
+  LinkData,
+  ProjectData,
+  SlugData,
+  TechStackData,
+} from '@/types/data.types';
 
 import ZYLoader from '~/svg/ZYLoader.svg';
 
@@ -65,11 +70,24 @@ export default function Project({ projectData }: ProjectProps) {
   );
 }
 
-export async function getServerSideProps({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function getStaticPaths() {
+  const projectSlugs = await client.fetch(`*[_type == "project"]{slug}`);
+
+  const paths = projectSlugs.map(({ slug }: { slug: SlugData }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const projectData = await client.fetch(
     `*[_type == "project" && slug.current == "${params.slug}"]{
       title,
@@ -79,14 +97,6 @@ export async function getServerSideProps({
       tech_stack[]->{title, icon}
     }`
   );
-
-  if (projectData.length <= 0) {
-    return {
-      notFound: true,
-    };
-  } else if (projectData.status == 500) {
-    throw new TypeError('Oops, something went wrong ;(');
-  }
 
   return {
     props: {

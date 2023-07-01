@@ -55,7 +55,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = ({
           width={width}
           height={height}
           fill={fill}
-          object-contain={fill}
+          object-contain={fill?.toString()}
           alt={alt ?? 'Image'}
           onLoad={() => setIsLoading(false)}
         />
