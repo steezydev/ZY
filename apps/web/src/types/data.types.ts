@@ -11,9 +11,7 @@ export interface ProjectData {
   title: string;
   description: string;
   short_description: string;
-  slug: {
-    current: string;
-  };
+  slug: SlugData;
   image: ImageData;
   logo: ImageData;
   tech_stack: TechStackData[];
@@ -31,3 +29,7 @@ export interface TechStackData {
 }
 
 export type ImageData = SanityImageSource;
+
+export interface SlugData {
+  current: string;
+}
