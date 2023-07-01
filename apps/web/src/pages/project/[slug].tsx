@@ -2,45 +2,38 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-import Bagelink from '@/components/Bagelink';
-import Layout from '@/components/Layout/Layout';
-import Seo from '@/components/Seo';
-import SkeletonImage from '@/components/SkeletonImage/SkeletonImage';
-import Stack from '@/components/Stack';
-
-import { getProjectData } from '@/services/project.services';
-
-import { LinkData } from '@/types/link.types';
-import { ProjectData } from '@/types/project.types';
-import { TechStack } from '@/types/tech.types';
-
-
-import ZYLoader from '~/svg/ZYLoader.svg';
 import client from '@/lib/client';
 import { getImageUrl } from '@/lib/image';
 
+import Bagelink from '@/components/Bagelink';
+import Layout from '@/components/Layout/Layout';
+import Seo from '@/components/Seo';
+import SkeletonImage from '@/components/SkeletonImage';
+import Stack from '@/components/Stack';
+
+import { LinkData, ProjectData, TechStackData } from '@/types/data.types';
+
+import ZYLoader from '~/svg/ZYLoader.svg';
+
 interface ProjectProps {
-  slug: string;
   projectData: ProjectData;
 }
 
-export default function Project({ slug, projectData }: ProjectProps) {
-  console.log(projectData)
-
+export default function Project({ projectData }: ProjectProps) {
   return (
     <Layout>
       <Seo templateTitle={projectData.title} />
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='layout'>
           <SkeletonImage
-            src={getImageUrl(projectData.image).url() }
+            src={getImageUrl(projectData.image).url()}
             fill
             className='relative h-48 w-full'
             loaderSvg={<ZYLoader height={152} width={152} className='w-full' />}
           />
           <h1 className='mt-10'>{projectData.title}</h1>
-          <div className='mt-4 mb-6 flex flex-wrap gap-2'>
-            {projectData.links.map(({label, url}: LinkData, key: number) => (
+          <div className='mb-6 mt-4 flex flex-wrap gap-2'>
+            {projectData.links.map(({ label, url }: LinkData, key: number) => (
               <Bagelink href={url} key={`link-${key}`}>
                 {label}
               </Bagelink>
@@ -53,11 +46,8 @@ export default function Project({ slug, projectData }: ProjectProps) {
             </span>
             <Stack>
               {projectData.tech_stack.map(
-                (tech: TechStack, key: number) => (
-                  <Stack.Item
-                    tooltip={tech.title}
-                    key={`tech-${key}`}
-                  >
+                (tech: TechStackData, key: number) => (
+                  <Stack.Item tooltip={tech.title} key={`tech-${key}`}>
                     <Image
                       src={getImageUrl(tech.icon).url()}
                       alt='Picture of the author'
@@ -88,7 +78,7 @@ export async function getServerSideProps({
       links,
       tech_stack[]->{title, icon}
     }`
-    );
+  );
 
   if (projectData.length <= 0) {
     return {

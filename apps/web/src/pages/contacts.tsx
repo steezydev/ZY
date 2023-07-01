@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import * as React from 'react';
 
+import client from '@/lib/client';
+
 import Bagelink from '@/components/Bagelink';
 import Layout from '@/components/Layout/Layout';
 import Seo from '@/components/Seo';
 
-import { AboutData } from '@/types/about.types';
-import { LinkData } from '@/types/link.types';
-import client from '@/lib/client';
+import { AboutData, LinkData } from '@/types/data.types';
 
 interface ContactsPageProps {
   about: AboutData;
@@ -28,9 +28,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 Email
               </span>
               <span className='font-display text-xl'>
-                <Link href={`mailto:${about.email}`}>
-                  {about.email}
-                </Link>
+                <Link href={`mailto:${about.email}`}>{about.email}</Link>
               </span>
             </div>
             <div className='mt-5 flex flex-col gap-2'>
@@ -38,7 +36,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 Socials
               </span>
               <div className='flex flex-wrap gap-2'>
-                {about.links.map(({label, url}: LinkData, key: number) => (
+                {about.links.map(({ label, url }: LinkData, key: number) => (
                   <Bagelink href={url} key={`link-${key}`}>
                     {label}
                   </Bagelink>
@@ -74,7 +72,7 @@ export async function getStaticProps() {
       links,
       email
     }`
-    );
+  );
 
   return {
     props: {

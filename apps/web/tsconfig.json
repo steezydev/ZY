@@ -20,7 +20,13 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/types/custom.d.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/types/custom.d.ts",
+    "@types/block-content-to-react.d.ts"
+  ],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }
