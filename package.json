@@ -6,7 +6,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier -c \"**/*.{ts,tsx,md}\"",
-    "typecheck": "tsc --build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -27,10 +28,12 @@
   ],
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [
+      "yarn typecheck",
       "eslint --max-warnings=0",
       "prettier -w"
     ],
     "packages/**/*.{js,jsx,ts,tsx}": [
+      "yarn typecheck",
       "eslint --max-warnings=0",
       "prettier -w"
     ],
