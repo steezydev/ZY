@@ -25,7 +25,6 @@ export const Default = Template.bind({});
 Default.args = {
   children: (
     <>
-      <ProjectCard.Badge variant='ready'>Ready</ProjectCard.Badge>
       <ProjectCard.Title>Lissa Soap</ProjectCard.Title>
       <ProjectCard.Body>
         Improve ashamed married expense bed her comfort pursuit mrs. Four time
