@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className='mt-auto h-full w-full py-3 md:py-5'>
       <div className='layout flex items-center justify-between font-accent text-xs font-light text-white/50'>
         <div>© 2023 steezy</div>
-        <div className='flex gap-4 text-xl'>
+        <div className='flex gap-4 text-xl md:gap-3'>
           <Link href='https://github.com/steezydev' target='_blank'>
             <BsGithub className='text-white/50 transition-all hover:text-white' />
           </Link>

@@ -15,7 +15,7 @@ import Burger from '~/svg/Burger.svg';
 
 const links = [
   { path: '/', name: 'About' },
-  { path: '/projects', name: 'My work' },
+  { path: '/projects', name: 'My works' },
   { path: '/contacts', name: 'Contacts' },
 ];
 
@@ -45,7 +45,7 @@ export default function Header() {
         >
           <Burger />
         </div>
-        <div className='hidden gap-12 border-y border-x-0 border-solid border-white/5 py-3 font-accent text-sm md:flex'>
+        <div className='hidden gap-12 border-x-0 border-y border-solid border-white/5 py-3 font-accent text-sm md:flex'>
           {links.map(({ path, name }) => (
             <CustomLink
               isActive={router.pathname === path}
