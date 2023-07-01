@@ -6,7 +6,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier -c \"**/*.{ts,tsx,md}\"",
-    "typecheck": "tsc --noEmit --incremental false",
+    "typecheck": "tsc --build",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -16,7 +16,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.1.6"
   },
   "name": "zy",
   "packageManager": "yarn@1.22.19",
@@ -27,7 +28,6 @@
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0",
-      "tsc --noEmit --incremental false",
       "prettier -w"
     ],
     "packages/**/*.{js,jsx,ts,tsx}": [
