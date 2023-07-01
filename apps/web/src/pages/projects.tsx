@@ -26,10 +26,9 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
           {projects && projects.length != 0 ? (
             <div className='grid grid-cols-1 gap-4 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-12'>
               {projects.map((item: ProjectData, key: number) => (
-                <>
+                <div key={`project-${key}`}>
                   <Link
                     href={`/project/${item.slug.current}`}
-                    key={`project-${key}`}
                     className='flex flex-col items-center gap-3'
                   >
                     <ProjectCard image={getImageUrl(item.logo).url()}>
@@ -44,7 +43,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                       <div className='w-10/12 border-x-0 border-y-0 border-b border-solid border-white/5 text-center' />
                     </div>
                   )}
-                </>
+                </div>
               ))}
             </div>
           ) : (
