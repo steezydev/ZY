@@ -28,12 +28,10 @@
   ],
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [
-      "yarn typecheck",
       "eslint --max-warnings=0",
       "prettier -w"
     ],
     "packages/**/*.{js,jsx,ts,tsx}": [
-      "yarn typecheck",
       "eslint --max-warnings=0",
       "prettier -w"
     ],
