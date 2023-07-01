@@ -1,4 +1,4 @@
-<img src="./public/readme/cover2.png">
+<img src="./misc/readme_banner.png">
 <p>
   <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
   <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
@@ -16,10 +16,12 @@ The ZY Portfolio serves the purpose of displaying programming and design project
 
 ## Getting Started
 
-To set up and run the ZY Portfolio, follow the instructions below:
+To set up and run the ZY Portfolio is structured as a monorepo, follow the instructions below:
 
 1. Clone the repository to your local machine.
 2. Install the required dependencies by running `yarn install`.
-3. Start the development server by running `yarn run dev`.
+3. Start the development server by running `yarn dev`.
+
+The cms will be accessible at http://localhost:3333.
 
 The application will be accessible at http://localhost:3000.
