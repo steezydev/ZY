@@ -103,5 +103,6 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
       slug: params.slug,
       projectData: projectData[0],
     },
+    //TODO: Try using on-demand revalidation https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration
   };
 }

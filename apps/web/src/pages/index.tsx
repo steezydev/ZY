@@ -36,7 +36,7 @@ export default function HomePage({ about }: HomePageProps) {
                 icon={<BsTwitter />}
                 variant='secondary'
               >
-                Building in public
+                Enjoying twitter?
               </Button>
             </Link>
           </div>
