@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 460 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+			<stop offset="20%" stop-color="#171717" stop-opacity="1" />
+			<stop offset="50%" stop-color="#323232" stop-opacity="1" />
+			<stop offset="80%" stop-color="#171717" stop-opacity="1" />
+			<animate attributeName="x1" values="-100%; 100%" dur="2s" repeatCount="indefinite" />
+			<animate attributeName="x2" values="0%; 200%" dur="2s" repeatCount="indefinite" />
+		</linearGradient>
+	</defs>
+	<path d="M204.957 212H0.885316V158.695L113.488 58.0786V53.9783H2.77779V0.673534H203.065V53.9783L85.4159 154.595V158.695H204.957V212ZM362.117 145.448H303.45L208.195 0.673534H281.686L313.543 50.8241L331.522 80.4729H335.622L353.6 50.8241L385.457 0.673534H459.264L362.117 145.448ZM362.432 212H303.134V111.699H362.432V212Z" fill="url(#gradient)" />
+</svg>

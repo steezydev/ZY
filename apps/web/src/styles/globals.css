@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shadow-color: 286deg 36% 56%;
+  --shadow-elevation-low: 0px 0.4px 0.5px hsl(var(--shadow-color) / 0.32),
+    0px 0.7px 0.8px -1.2px hsl(var(--shadow-color) / 0.33),
+    0px 1.7px 2px -2.3px hsl(var(--shadow-color) / 0.35);
+  --shadow-elevation-medium: 0px 0.4px 0.5px hsl(var(--shadow-color) / 0.33),
+    0px 1.5px 1.7px -0.8px hsl(var(--shadow-color) / 0.35),
+    0.1px 3.5px 4px -1.5px hsl(var(--shadow-color) / 0.36),
+    0.2px 8.5px 9.8px -2.3px hsl(var(--shadow-color) / 0.38);
+  --shadow-elevation-high: 0px 0.4px 0.5px hsl(var(--shadow-color) / 0.31),
+    0.1px 2.6px 3px -0.3px hsl(var(--shadow-color) / 0.32),
+    0.1px 4.9px 5.7px -0.7px hsl(var(--shadow-color) / 0.32),
+    0.2px 7.9px 9.1px -1px hsl(var(--shadow-color) / 0.33),
+    0.3px 12.5px 14.4px -1.3px hsl(var(--shadow-color) / 0.34),
+    0.4px 19.2px 22.2px -1.6px hsl(var(--shadow-color) / 0.34),
+    0.6px 29px 33.5px -2px hsl(var(--shadow-color) / 0.35),
+    0.9px 42.5px 49.1px -2.3px hsl(var(--shadow-color) / 0.36);
+  color-scheme: dark;
+}
+
+@layer base {
+  a:focus,
+  button:focus,
+  input:focus,
+  :focus {
+    outline: none;
+  }
+
+  a::-moz-focus-inner,
+  button::-moz-focus-inner,
+  input::-moz-focus-inner,
+  ::-moz-focus-inner {
+    border: 0;
+  }
+
+  @font-face {
+    font-family: 'ClashDisplay';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/clashdisplay.ttf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/outfit.ttf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: optional;
+    src: url('/fonts/satoshi.ttf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/cpmono_bold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('/fonts/cpmono_black.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/cpmono_plain.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'CPMono';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('/fonts/cpmono_light.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'ClashGrotesk';
+    src: url('/fonts/clashgrotesk_variable.woff2') format('woff2'),
+      url('/fonts/clashgrotesk_variable.woff') format('woff'),
+      url('/fonts/clashgrotesk_variable.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  /* #region  /**=========== Typography =========== */
+  .h0 {
+    @apply font-primary text-3xl font-bold md:text-5xl;
+  }
+
+  h1,
+  .h1 {
+    @apply font-display text-3xl font-medium md:text-5xl;
+  }
+
+  h2,
+  .h2 {
+    @apply mb-12 font-display text-3xl font-medium md:text-4xl;
+  }
+
+  h3,
+  .h3 {
+    @apply font-primary text-lg font-bold md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply font-primary text-base font-bold md:text-lg;
+  }
+
+  body,
+  .p {
+    @apply font-primary text-lg md:text-base;
+  }
+
+  a {
+    @apply text-white no-underline;
+  }
+  /* #endregion  /**======== Typography =========== */
+
+  * {
+    @apply m-0;
+    @apply p-0;
+    box-sizing: border-box;
+  }
+
+  p {
+    @apply my-4 text-lg;
+  }
+
+  h1 {
+    @apply pt-4;
+  }
+
+  html {
+    @apply bg-dark;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.6035 1.66324L19.5685 7.96251C20.0461 8.13987 20.1598 8.76382 19.7754 9.09826L6.70232 20.4723C6.31792 20.8067 5.7157 20.6078 5.60612 20.1102L1.71425 2.43692C1.59997 1.91796 2.10535 1.47827 2.6035 1.66324Z' fill='%230D0D0D' fill-opacity='0.8' stroke='%23EBEBEB' stroke-width='1.8'/%3E%3C/svg%3E%0A"),
+      auto !important;
+  }
+
+  #__next {
+    @apply flex flex-col;
+    width: 100%;
+    height: auto;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    @apply bg-dark;
+    -webkit-overflow-scrolling: touch;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  a {
+    cursor: url("data:image/svg+xml,%3Csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.6035 1.66324L19.5685 7.96251C20.0461 8.13987 20.1598 8.76382 19.7754 9.09826L6.70232 20.4723C6.31792 20.8067 5.7157 20.6078 5.60612 20.1102L1.71425 2.43692C1.59997 1.91796 2.10535 1.47827 2.6035 1.66324Z' fill='%230D0D0D' fill-opacity='0.8' stroke='%23EBEBEB' stroke-width='1.8'/%3E%3C/svg%3E%0A"),
+      auto !important;
+  }
+
+  cursor {
+    transform: rotate(45deg);
+  }
+
+  .body-app {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 100% 23%, 0% 87%;
+    background-size: 20em;
+  }
+
+  .layout {
+    /* 1100px */
+    max-width: 45rem;
+    @apply mx-auto w-11/12;
+  }
+
+  .row {
+    animation: out 0.1s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  .row:hover {
+    animation: in 0.1s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes out {
+    0% {
+      @apply bg-black/20;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      @apply bg-black/0;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+  }
+
+  @keyframes in {
+    0% {
+      @apply bg-black/0;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    100% {
+      @apply bg-black/20;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Class to adjust with sticky footer */
+  .min-h-main {
+    @apply min-h-[calc(100vh-56px)];
+  }
+
+  .text-glow {
+    text-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  .slidingLink {
+    text-decoration: none;
+    background-size: 0% 0.098em;
+    background-position-y: 100%;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+  }
+
+  .slidingLink:hover {
+    background-size: 100% 0.098em;
+    background-position-x: 0%;
+  }
+
+  .spinner {
+    width: 44.8px;
+    height: 44.8px;
+    animation: spinner-y0fdc1 2.4s infinite ease;
+    transform-style: preserve-3d;
+  }
+
+  .spinner > div {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    border: 2.2px solid #ffffff;
+  }
+
+  .spinner div:nth-of-type(1) {
+    transform: translateZ(-22.4px) rotateY(180deg);
+  }
+
+  .spinner div:nth-of-type(2) {
+    transform: rotateY(-270deg) translateX(50%);
+    transform-origin: top right;
+  }
+
+  .spinner div:nth-of-type(3) {
+    transform: rotateY(270deg) translateX(-50%);
+    transform-origin: center left;
+  }
+
+  .spinner div:nth-of-type(4) {
+    transform: rotateX(90deg) translateY(-50%);
+    transform-origin: top center;
+  }
+
+  .spinner div:nth-of-type(5) {
+    transform: rotateX(-90deg) translateY(50%);
+    transform-origin: bottom center;
+  }
+
+  .spinner div:nth-of-type(6) {
+    transform: translateZ(22.4px);
+  }
+
+  @keyframes spinner-y0fdc1 {
+    0% {
+      transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+    }
+
+    50% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+    }
+
+    100% {
+      transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+    }
+  }
+}
