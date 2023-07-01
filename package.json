@@ -6,6 +6,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier -c \"**/*.{ts,tsx,md}\"",
+    "typecheck": "tsc --noEmit --incremental false",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -26,6 +27,7 @@
   "lint-staged": {
     "apps/**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0",
+      "tsc --noEmit --incremental false",
       "prettier -w"
     ],
     "packages/**/*.{js,jsx,ts,tsx}": [
