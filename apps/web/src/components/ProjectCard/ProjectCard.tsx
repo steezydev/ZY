@@ -2,7 +2,6 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import Badge from '@/components/Badge';
 import SkeletonImage from '@/components/SkeletonImage/SkeletonImage';
 
 import ZYLoader from '~/svg/ZYLoader.svg';
@@ -26,18 +25,6 @@ function ProjectBody({ children }: ProjectCardModulesProps) {
     <span className='font-accent text-sm font-light text-white/70'>
       {children}
     </span>
-  );
-}
-
-function ProjectBadge({
-  children,
-  variant,
-  className,
-}: React.ComponentProps<typeof Badge>) {
-  return (
-    <div className={clsxm(className)}>
-      <Badge variant={variant}>{children}</Badge>
-    </div>
   );
 }
 
@@ -65,6 +52,5 @@ function ProjectCard({ children, image, className }: ProjectCardProps) {
 
 ProjectCard.Title = ProjectTitle;
 ProjectCard.Body = ProjectBody;
-ProjectCard.Badge = ProjectBadge;
 
 export default ProjectCard;

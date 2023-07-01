@@ -1,4 +1,4 @@
-export default {
+const aboutSchema = {
   name: 'about',
   title: 'About',
   type: 'document',
@@ -6,7 +6,7 @@ export default {
     {
       name: 'email',
       title: 'Email',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'links',
@@ -23,16 +23,18 @@ export default {
             {
               name: 'url',
               type: 'url',
-            }
-          ]
-        }
-      ]
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'aboutText',
       title: 'About',
-      type: 'array', 
-      of: [{type: 'block'}]
-    }
-  ]
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+  ],
 }
+
+export default aboutSchema

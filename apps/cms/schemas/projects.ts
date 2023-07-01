@@ -15,11 +15,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 200, // will be ignored if slugify is set
-        slugify: (input: string) => input
-         .toLowerCase()
-         .replace(/\s+/g, '-')
-         .slice(0, 200)
-      }
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
     },
     {
       name: 'description',
@@ -49,8 +46,8 @@ export default {
         {
           type: 'reference',
           to: [{type: 'techStack'}],
-        }
-      ]
+        },
+      ],
     },
     {
       name: 'links',
@@ -67,10 +64,10 @@ export default {
             {
               name: 'url',
               type: 'url',
-            }
-          ]
-        }
-      ]
-    }
-  ]
+            },
+          ],
+        },
+      ],
+    },
+  ],
 }

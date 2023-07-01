@@ -1,4 +1,3 @@
-
 import projects from './projects'
 import techStack from './techStack'
 import about from './about'
