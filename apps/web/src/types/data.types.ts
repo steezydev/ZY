@@ -5,6 +5,7 @@ export interface AboutData {
   aboutText: any;
   email: string;
   links: LinkData[];
+  tech_stack_primary: TechStackData[];
 }
 
 export interface ProjectData {

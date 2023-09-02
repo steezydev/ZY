@@ -1,5 +1,7 @@
 import React from 'react';
 
+import clsxm from '@/lib/clsxm';
+
 import Tooltip from '@/components/Tooltip';
 
 interface StackItemProps {
@@ -9,6 +11,7 @@ interface StackItemProps {
 
 interface StackProps {
   children: React.ReactNode;
+  className?: string;
 }
 
 function StackItem({ children, tooltip }: StackItemProps) {
@@ -19,8 +22,10 @@ function StackItem({ children, tooltip }: StackItemProps) {
   );
 }
 
-function Stack({ children }: StackProps) {
-  return <div className='fle-row flex gap-2'>{children}</div>;
+function Stack({ children, className }: StackProps) {
+  return (
+    <div className={clsxm('fle-row flex gap-2', className)}>{children}</div>
+  );
 }
 
 Stack.Item = StackItem;
