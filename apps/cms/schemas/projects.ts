@@ -51,6 +51,11 @@ export default {
       ],
     },
     {
+      title: 'Release Date',
+      name: 'releaseDate',
+      type: 'date',
+    },
+    {
       name: 'links',
       title: 'Links',
       type: 'array',
@@ -69,6 +74,18 @@ export default {
           ],
         },
       ],
+    },
+  ],
+  orderings: [
+    {
+      title: 'Release Date, New',
+      name: 'releaseDateDesc',
+      by: [{field: 'releaseDate', direction: 'desc'}],
+    },
+    {
+      title: 'Release Date, Old',
+      name: 'releaseDateAsc',
+      by: [{field: 'releaseDate', direction: 'asc'}],
     },
   ],
 }

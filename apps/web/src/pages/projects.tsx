@@ -59,7 +59,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
 
 export async function getStaticProps() {
   const projects = await client.fetch(
-    `*[_type == "project"]{title, short_description, logo, slug}`
+    `*[_type == "project"] | order(releaseDate desc) {title, short_description, logo, slug}`
   );
   return {
     props: {
