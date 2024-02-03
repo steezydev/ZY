@@ -1,3 +1,4 @@
+import { PortableTextBlock } from '@portabletext/types';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export interface AboutData {
@@ -12,6 +13,7 @@ export interface ProjectData {
   title: string;
   description: string;
   short_description: string;
+  body: PortableTextBlock;
   slug: SlugData;
   image: ImageData;
   logo: ImageData;

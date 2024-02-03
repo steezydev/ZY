@@ -50,3 +50,7 @@ function getOrdinalSuffix(dayOfMonth: number) {
     return 'th';
   }
 }
+
+export function getCurrentYear() {
+  return new Date().getFullYear();
+}

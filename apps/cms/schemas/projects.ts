@@ -19,9 +19,10 @@ export default {
       },
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      title: 'Body',
+      name: 'body',
+      type: 'array',
+      of: [{type: 'block'}],
     },
     {
       name: 'short_description',

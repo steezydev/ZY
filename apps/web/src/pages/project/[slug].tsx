@@ -1,5 +1,7 @@
+import { PortableText } from '@portabletext/react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import client from '@/lib/client';
@@ -44,7 +46,22 @@ export default function Project({ projectData }: ProjectProps) {
               </Bagelink>
             ))}
           </div>
-          <p>{projectData.description}</p>
+          <PortableText
+            value={projectData.body}
+            components={{
+              marks: {
+                link: ({ value, children }) => (
+                  <Link
+                    className='super-link '
+                    href={value.href}
+                    target='_blank'
+                  >
+                    {children}
+                  </Link>
+                ),
+              },
+            }}
+          />
           <div className='flex flex-col gap-2'>
             <span className='font-accent text-sm font-light text-white/50'>
               Tech stack
@@ -92,6 +109,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     `*[_type == "project" && slug.current == "${params.slug}"]{
       title,
       description,
+      body,
       image,
       links,
       tech_stack[]->{title, icon}
