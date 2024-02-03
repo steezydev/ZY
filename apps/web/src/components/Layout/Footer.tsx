@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { BsGithub, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 import { getCurrentYear } from '@/lib/dates';
 
@@ -13,8 +13,11 @@ export default function Footer() {
           <Link href='https://github.com/steezydev' target='_blank'>
             <BsGithub className='text-white/50 transition-all hover:text-white' />
           </Link>
-          <Link href='https://twitter.com/steezy_dev' target='_blank'>
-            <BsTwitter className='text-white/50 transition-all hover:text-white' />
+          <Link
+            href='https://www.linkedin.com/in/ivanilichevv/'
+            target='_blank'
+          >
+            <BsLinkedin className='text-white/50 transition-all hover:text-white' />
           </Link>
         </div>
       </div>

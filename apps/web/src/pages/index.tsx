@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
-import { BsTwitter } from 'react-icons/bs';
 
 import client from '@/lib/client';
 import { getImageUrl } from '@/lib/image';
@@ -26,16 +25,16 @@ export default function HomePage({ about }: HomePageProps) {
         <section className='layout'>
           <h2>Hi, I'm steezy!</h2>
           <p>
-            I'm both a developer and a designer. My coding adventure began in{' '}
-            <strong>2018</strong>, and since then, I've immersed myself in web
-            and mobile development, continually refining my craft. Over the
-            years, I've contributed to <strong>20+</strong> commercial projects,
-            showcasing my prowess in both back-end and front-end development.
+            I specialize in creating immersive and accessible web user
+            experiences producing both design and code for my solutions. My
+            coding adventure began in <strong>2018</strong>, and since then, I
+            have contributed to more than <strong>20</strong> commercially
+            successful projects and gained a strong understanding of what makes
+            good UI/UX as well as the full software development lifecycle.
           </p>
           <p>
-            Outside of my primary work, I moonlight as an indie-hacker &
-            blockchain enthusiast. I indulge in creating my own projects and
-            startups, and often share insights on my Twitter.
+            Outside of my primary work, I moonlight as a graphics designer,
+            indie-hacker & blockchain enthusiast.
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-5 md:flex-row'>
             <Link href='/projects'>
@@ -43,28 +42,24 @@ export default function HomePage({ about }: HomePageProps) {
                 Check out my projects
               </Button>
             </Link>
-            <Link target='_blank' href='https://twitter.com/steezy_dev'>
-              <Button
-                className='h-10 w-full md:h-full'
-                icon={<BsTwitter />}
-                variant='secondary'
-              >
-                Twitter life
-              </Button>
-            </Link>
           </div>
           <p>
-            Throughout my journey, I've explored numerous libraries and
-            technologies, picking up indispensable skills that now define my
-            work. My main tech stack consists of Typescript, Next.js,
-            TailwindCSS and React Native. A full list of my skills is avaiable
-            on{' '}
+            My main tech stack consists of Typescript, Next.js, TailwindCSS and
+            React Native. A full list of my skills is available on{' '}
             <Link
               className='super-link '
               href='https://github.com/steezydev'
               target='_blank'
             >
               GitHub
+            </Link>{' '}
+            or in my{' '}
+            <Link
+              className='super-link '
+              href='https://docs.google.com/document/d/11PUbfty_1JoglcKOBdbIpGM-2BmThl-P-3T_51esxFM/edit?usp=sharing'
+              target='_blank'
+            >
+              CV
             </Link>
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-3'>
@@ -85,12 +80,20 @@ export default function HomePage({ about }: HomePageProps) {
           </div>
           <p>
             I'm always up for a chat, collaboration, or new opportunities. Feel
-            free to DM me. Together we can craft something remarkable!
+            free to DM me. Together we can build something remarkable!
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-5 md:flex-row'>
             <Link href='/contacts'>
               <Button variant='secondary' className='h-10 w-full md:h-full'>
                 Contacts
+              </Button>
+            </Link>
+            <Link
+              target='_blank'
+              href='https://docs.google.com/document/d/11PUbfty_1JoglcKOBdbIpGM-2BmThl-P-3T_51esxFM/edit?usp=sharing'
+            >
+              <Button variant='secondary' className='h-10 w-full md:h-full'>
+                CV
               </Button>
             </Link>
           </div>
