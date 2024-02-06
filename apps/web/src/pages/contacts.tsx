@@ -7,6 +7,7 @@ import client from '@/lib/client';
 import Bagelink from '@/components/bagelink/Badgelink';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/seo/Seo';
+import H2 from '@/components/typography/H2';
 
 import { LinkData } from '@/types/data/LinkData';
 import { ContactsPageProps } from '@/types/props/ContactsPageProps';
@@ -19,7 +20,7 @@ export default function ContactsPage({ about }: ContactsPageProps) {
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className=''>
           <div className='layout'>
-            <h2>Contact me</h2>
+            <H2 className='mb-10'>Contact me</H2>
             <div className='mt-5 flex flex-col gap-2'>
               <span className='font-accent text-sm font-light text-white/50'>
                 Email

@@ -13,6 +13,7 @@ import Seo from '@/components/seo/Seo';
 import SkeletonImage from '@/components/skeleton/SkeletonImage';
 import TechStack from '@/components/techstack/TechStack';
 import TechStackItem from '@/components/techstack/TechStackItem';
+import H1 from '@/components/typography/H1';
 
 import { LinkData } from '@/types/data/LinkData';
 import { SlugData } from '@/types/data/SlugData';
@@ -33,7 +34,7 @@ export default function Project({ projectData }: ProjectProps) {
             className='relative h-48 w-full'
             loaderSvg={<ZYLoader height={152} width={152} className='w-full' />}
           />
-          <h1 className='mt-10'>{projectData.title}</h1>
+          <H1 className='mt-10'>{projectData.title}</H1>
           <div className='mb-6 mt-4 flex flex-wrap gap-2'>
             {projectData.links.map(({ label, url }: LinkData, key: number) => (
               <Bagelink href={url} key={`link-${key}`}>
@@ -68,8 +69,8 @@ export default function Project({ projectData }: ProjectProps) {
                     <Image
                       src={getImageUrl(tech.icon).url()}
                       alt='Picture of the author'
-                      width={25}
-                      height={25}
+                      width={30}
+                      height={30}
                     />
                   </TechStackItem>
                 )

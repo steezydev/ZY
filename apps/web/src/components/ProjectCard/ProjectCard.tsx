@@ -25,7 +25,7 @@ function ProjectCard({
         />
       </div>
       <div className='flex flex-col gap-2'>
-        <span className='font-plain font-accent text-sm'>{title}</span>
+        <span className='font-plain font-accent text-base'>{title}</span>
         <span className='font-accent text-sm font-light text-white/70'>
           {description}
         </span>

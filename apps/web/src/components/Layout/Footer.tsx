@@ -11,13 +11,13 @@ export default function Footer() {
         <div>© {getCurrentYear()} steezy</div>
         <div className='flex gap-4 text-xl md:gap-3'>
           <Link href='https://github.com/steezydev' target='_blank'>
-            <BsGithub className='text-white/50 transition-all hover:text-white' />
+            <BsGithub className='h-6 w-6 text-white/50 transition-all hover:text-white' />
           </Link>
           <Link
             href='https://www.linkedin.com/in/ivanilichevv/'
             target='_blank'
           >
-            <BsLinkedin className='text-white/50 transition-all hover:text-white' />
+            <BsLinkedin className='h-6 w-6 text-white/50 transition-all hover:text-white' />
           </Link>
         </div>
       </div>

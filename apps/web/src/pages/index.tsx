@@ -11,6 +11,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/seo/Seo';
 import TechStack from '@/components/techstack/TechStack';
 import TechStackItem from '@/components/techstack/TechStackItem';
+import H2 from '@/components/typography/H2';
 
 import { TechStackData } from '@/types/data/TechStackData';
 import { HomePageProps } from '@/types/props/HomePageProps';
@@ -21,7 +22,7 @@ export default function HomePage({ about }: HomePageProps) {
       <Seo />
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='layout'>
-          <h2>Hi, I'm steezy!</h2>
+          <H2 className='mb-10'>Hi, I'm steezy!</H2>
           <p>
             I specialize in creating immersive and accessible web user
             experiences producing both design and code for my solutions. My

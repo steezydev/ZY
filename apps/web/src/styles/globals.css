@@ -104,29 +104,6 @@
   }
 
   /* #region  /**=========== Typography =========== */
-  .h0 {
-    @apply font-primary text-3xl font-bold md:text-5xl;
-  }
-
-  h1,
-  .h1 {
-    @apply font-display text-3xl font-medium md:text-5xl;
-  }
-
-  h2,
-  .h2 {
-    @apply mb-12 font-display text-3xl font-medium md:text-4xl;
-  }
-
-  h3,
-  .h3 {
-    @apply font-primary text-lg font-bold md:text-2xl;
-  }
-
-  h4,
-  .h4 {
-    @apply font-primary text-base font-bold md:text-lg;
-  }
 
   body,
   .p {
@@ -146,10 +123,6 @@
 
   p {
     @apply my-4 text-lg;
-  }
-
-  h1 {
-    @apply pt-4;
   }
 
   html {

@@ -6,7 +6,7 @@ import { TechStackProps } from '@/types/props/TechStackProps';
 
 function TechStack({ children, className }: TechStackProps) {
   return (
-    <div className={clsxm('fle-row flex gap-2', className)}>{children}</div>
+    <div className={clsxm('fle-row flex gap-3', className)}>{children}</div>
   );
 }
 
