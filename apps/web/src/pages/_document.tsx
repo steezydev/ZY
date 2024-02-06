@@ -15,58 +15,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en' className='bg-dark'>
-        <Head>
-          <link
-            rel='preload'
-            href='/fonts/cpmono_plain.woff'
-            as='font'
-            crossOrigin='anonymous'
-          />
-          <link
-            rel='preload'
-            href='/fonts/cpmono_light.woff'
-            as='font'
-            crossOrigin='anonymous'
-          />
-          <link
-            rel='preload'
-            href='/fonts/clashgrotesk_variable.ttf'
-            as='font'
-            crossOrigin='anonymous'
-          />
-          <link
-            rel='preload'
-            href='/fonts/outfit.ttf'
-            as='font'
-            crossOrigin='anonymous'
-          />
-          <link
-            rel='preload'
-            href='/fonts/satoshi.ttf'
-            as='font'
-            crossOrigin='anonymous'
-          />
-          <meta
-            name='theme-color'
-            content='#0F0F0F'
-            media='(prefers-color-scheme: light)'
-          />
-          <meta
-            name='theme-color'
-            content='#0F0F0F'
-            media='(prefers-color-scheme: dark)'
-          />
-          <meta
-            name='apple-mobile-web-app-status-bar-style'
-            content='black-translucent'
-          />
-          <meta name='color-scheme' content='dark'></meta>
-          <meta
-            name='apple-mobile-web-app-status-bar-style'
-            content='default'
-          />
-          <meta name='theme-color' content='#000000' />
-        </Head>
+        <Head></Head>
         <body className='body-app'>
           <Main />
           <NextScript />
