@@ -1,16 +1,10 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-type ButtonVariant = 'primary' | 'secondary';
+import { ButtonProps } from '@/types/props/ButtonProps';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  isLoading?: boolean;
-  disabled?: boolean;
-  icon?: React.ReactNode;
-  className?: string;
-}
+// TODO: Make Unstyled Button and fill and outline variants
 
 const Button = ({
   children,

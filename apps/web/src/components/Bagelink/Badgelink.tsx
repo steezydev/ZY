@@ -3,18 +3,16 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-interface BadgelinkProps {
-  children: React.ReactNode;
-  href: string;
-  fill?: boolean;
-  outline?: boolean;
-}
+import { BadgelinkProps } from '@/types/props/BadgelinkProps';
+
+//TODO: Make Unstyled Badgelink and fill and outline variants
 
 export default function Badgelink({
   children,
   href,
   fill = true,
   outline = false,
+  className,
 }: BadgelinkProps) {
   return (
     <Link
@@ -23,7 +21,8 @@ export default function Badgelink({
       className={clsxm(
         'group block w-fit cursor-pointer rounded-lg border-2 border-solid  px-3 py-0.5 font-medium leading-none backdrop-blur-sm transition-all ',
         fill && 'border-white bg-white hover:bg-darkSecondary',
-        outline && 'border-white bg-transparent hover:bg-white'
+        outline && 'border-white bg-transparent hover:bg-white',
+        className
       )}
     >
       <span

@@ -7,24 +7,19 @@ import React from 'react';
 import client from '@/lib/client';
 import { getImageUrl } from '@/lib/image';
 
-import Bagelink from '@/components/Bagelink';
-import Layout from '@/components/Layout/Layout';
-import Seo from '@/components/Seo';
-import SkeletonImage from '@/components/SkeletonImage';
-import Stack from '@/components/Stack';
+import Bagelink from '@/components/bagelink/Badgelink';
+import Layout from '@/components/layout/Layout';
+import Seo from '@/components/seo/Seo';
+import SkeletonImage from '@/components/skeleton/SkeletonImage';
+import TechStack from '@/components/techstack/TechStack';
+import TechStackItem from '@/components/techstack/TechStackItem';
 
-import {
-  LinkData,
-  ProjectData,
-  SlugData,
-  TechStackData,
-} from '@/types/data.types';
+import { LinkData } from '@/types/data/LinkData';
+import { SlugData } from '@/types/data/SlugData';
+import { TechStackData } from '@/types/data/TechStackData';
+import { ProjectProps } from '@/types/props/ProjectProps';
 
 import ZYLoader from '~/svg/ZYLoader.svg';
-
-interface ProjectProps {
-  projectData: ProjectData;
-}
 
 export default function Project({ projectData }: ProjectProps) {
   return (
@@ -66,20 +61,20 @@ export default function Project({ projectData }: ProjectProps) {
             <span className='font-accent text-sm font-light text-white/50'>
               Tech stack
             </span>
-            <Stack>
+            <TechStack>
               {projectData.tech_stack.map(
                 (tech: TechStackData, key: number) => (
-                  <Stack.Item tooltip={tech.title} key={`tech-${key}`}>
+                  <TechStackItem tooltip={tech.title} key={`tech-${key}`}>
                     <Image
                       src={getImageUrl(tech.icon).url()}
                       alt='Picture of the author'
                       width={25}
                       height={25}
                     />
-                  </Stack.Item>
+                  </TechStackItem>
                 )
               )}
-            </Stack>
+            </TechStack>
           </div>
         </section>
       </motion.main>

@@ -2,33 +2,18 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import SkeletonImage from '@/components/SkeletonImage/SkeletonImage';
+import SkeletonImage from '@/components/skeleton/SkeletonImage';
+
+import { ProjectCardProps } from '@/types/props/ProjectCardProps';
 
 import ZYLoader from '~/svg/ZYLoader.svg';
 
-interface ProjectCardProps {
-  children: React.ReactNode;
-  image: string;
-  className?: string;
-}
-
-interface ProjectCardModulesProps {
-  children: React.ReactNode;
-}
-
-function ProjectTitle({ children }: ProjectCardModulesProps) {
-  return <span className='font-plain font-accent text-sm'>{children}</span>;
-}
-
-function ProjectBody({ children }: ProjectCardModulesProps) {
-  return (
-    <span className='font-accent text-sm font-light text-white/70'>
-      {children}
-    </span>
-  );
-}
-
-function ProjectCard({ children, image, className }: ProjectCardProps) {
+function ProjectCard({
+  title,
+  description,
+  image,
+  className,
+}: ProjectCardProps) {
   return (
     <div className={clsxm('flex w-full flex-row gap-5', className)}>
       <div className='relative aspect-square h-28'>
@@ -38,19 +23,15 @@ function ProjectCard({ children, image, className }: ProjectCardProps) {
           height={112}
           width={112}
         />
-        {/* <Image
-          src={image}
-          alt='Project Image'
-          className='cursor-pointer object-contain'
-          fill
-        /> */}
       </div>
-      <div className='flex flex-col gap-2'>{children}</div>
+      <div className='flex flex-col gap-2'>
+        <span className='font-plain font-accent text-sm'>{title}</span>
+        <span className='font-accent text-sm font-light text-white/70'>
+          {description}
+        </span>
+      </div>
     </div>
   );
 }
-
-ProjectCard.Title = ProjectTitle;
-ProjectCard.Body = ProjectBody;
 
 export default ProjectCard;

@@ -4,15 +4,12 @@ import * as React from 'react';
 
 import client from '@/lib/client';
 
-import Bagelink from '@/components/Bagelink';
-import Layout from '@/components/Layout/Layout';
-import Seo from '@/components/Seo';
+import Bagelink from '@/components/bagelink/Badgelink';
+import Layout from '@/components/layout/Layout';
+import Seo from '@/components/seo/Seo';
 
-import { AboutData, LinkData } from '@/types/data.types';
-
-interface ContactsPageProps {
-  about: AboutData;
-}
+import { LinkData } from '@/types/data/LinkData';
+import { ContactsPageProps } from '@/types/props/ContactsPageProps';
 
 export default function ContactsPage({ about }: ContactsPageProps) {
   return (
@@ -43,22 +40,6 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 ))}
               </div>
             </div>
-            {/* <div className='mt-12 flex flex-col gap-5 md:w-1/2'>
-              <div className='flex flex-col gap-5 md:flex-row'>
-                <CustomInput
-                  type='text'
-                  placeholder='Name'
-                  className='md:w-1/2'
-                />
-                <CustomInput
-                  type='text'
-                  placeholder='Email'
-                  className='md:w-1/2'
-                />
-              </div>
-              <CustomTextarea placeholder='Message' className='h-48 w-full' />
-              <Button>Send a message</Button>
-            </div> */}
           </div>
         </section>
       </motion.main>

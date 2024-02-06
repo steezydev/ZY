@@ -5,16 +5,13 @@ import * as React from 'react';
 import client from '@/lib/client';
 import { getImageUrl } from '@/lib/image';
 
-import Empty from '@/components/Empty';
-import Layout from '@/components/Layout/Layout';
-import ProjectCard from '@/components/ProjectCard';
-import Seo from '@/components/Seo';
+import ContentPlaceholder from '@/components/contentplaceholder/ContentPlaceholder';
+import Layout from '@/components/layout/Layout';
+import ProjectCard from '@/components/projectcard/ProjectCard';
+import Seo from '@/components/seo/Seo';
 
-import { ProjectData } from '@/types/data.types';
-
-interface ProjectsPageProps {
-  projects: ProjectData[];
-}
+import { ProjectData } from '@/types/data/ProjectData';
+import { ProjectsPageProps } from '@/types/props/ProjectsPageProps';
 
 export default function ProjectsPage({ projects }: ProjectsPageProps) {
   return (
@@ -31,12 +28,11 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
                     href={`/project/${item.slug.current}`}
                     className='flex flex-col items-center gap-3'
                   >
-                    <ProjectCard image={getImageUrl(item.logo).url()}>
-                      <ProjectCard.Title>{item.title}</ProjectCard.Title>
-                      <ProjectCard.Body>
-                        {item.short_description}
-                      </ProjectCard.Body>
-                    </ProjectCard>
+                    <ProjectCard
+                      title={item.title}
+                      description={item.short_description}
+                      image={getImageUrl(item.logo).url()}
+                    />
                   </Link>
                   {key === projects.length - 1 ? null : (
                     <div className='flex w-full items-center justify-center md:hidden'>
@@ -48,7 +44,9 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
             </div>
           ) : (
             <div className='flex h-96 items-center justify-center'>
-              <Empty>There is nothing in here yet ;(</Empty>
+              <ContentPlaceholder>
+                There is nothing in here yet ;(
+              </ContentPlaceholder>
             </div>
           )}
         </section>

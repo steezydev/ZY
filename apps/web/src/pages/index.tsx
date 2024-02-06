@@ -6,16 +6,14 @@ import * as React from 'react';
 import client from '@/lib/client';
 import { getImageUrl } from '@/lib/image';
 
-import Button from '@/components/Button';
-import Layout from '@/components/Layout/Layout';
-import Seo from '@/components/Seo';
-import Stack from '@/components/Stack';
+import Button from '@/components/button/Button';
+import Layout from '@/components/layout/Layout';
+import Seo from '@/components/seo/Seo';
+import TechStack from '@/components/techstack/TechStack';
+import TechStackItem from '@/components/techstack/TechStackItem';
 
-import { AboutData, TechStackData } from '@/types/data.types';
-
-interface HomePageProps {
-  about: AboutData;
-}
+import { TechStackData } from '@/types/data/TechStackData';
+import { HomePageProps } from '@/types/props/HomePageProps';
 
 export default function HomePage({ about }: HomePageProps) {
   return (
@@ -63,20 +61,20 @@ export default function HomePage({ about }: HomePageProps) {
             </Link>
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-3'>
-            <Stack className='gap-3'>
+            <TechStack className='gap-3'>
               {about.tech_stack_primary.map(
                 (tech: TechStackData, key: number) => (
-                  <Stack.Item tooltip={tech.title} key={`tech-${key}`}>
+                  <TechStackItem tooltip={tech.title} key={`tech-${key}`}>
                     <Image
                       src={getImageUrl(tech.icon).url()}
                       alt='Picture of the author'
                       width={33}
                       height={33}
                     />
-                  </Stack.Item>
+                  </TechStackItem>
                 )
               )}
-            </Stack>
+            </TechStack>
           </div>
           <p>
             I'm always up for a chat, collaboration, or new opportunities. Feel

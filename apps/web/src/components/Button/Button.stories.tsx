@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Button, { ButtonProps } from './Button';
+import Button from './Button';
+
+import { ButtonProps } from '@/types/props/ButtonProps';
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 

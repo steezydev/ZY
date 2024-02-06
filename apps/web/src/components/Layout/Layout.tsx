@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Footer from '@/components/Layout/Footer';
-import Header from '@/components/Layout/Header';
-import Loading from '@/components/Layout/Loading';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import Loading from '@/components/layout/Loading';
 
 export default function Layout({
   children,

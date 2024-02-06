@@ -7,9 +7,9 @@ import { BsGithub, BsTwitter } from 'react-icons/bs';
 import clsxm from '@/lib/clsxm';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 
-import Button from '@/components/Button/Button';
-import CustomLink from '@/components/CustomLink';
-import Logo from '@/components/Logo';
+import Button from '@/components/button/Button';
+import CustomLink from '@/components/link/Link';
+import Logo from '@/components/logo/Logo';
 
 import Burger from '~/svg/Burger.svg';
 
