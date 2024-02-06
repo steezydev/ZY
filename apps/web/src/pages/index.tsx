@@ -37,7 +37,10 @@ export default function HomePage({ about }: HomePageProps) {
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-5 md:flex-row'>
             <Link href='/projects'>
-              <Button className='h-10 w-full md:h-full'>
+              <Button
+                ariaLabel='Go to projects page'
+                className='h-10 w-full md:h-full'
+              >
                 Check out my projects
               </Button>
             </Link>
@@ -46,7 +49,8 @@ export default function HomePage({ about }: HomePageProps) {
             My main tech stack consists of Typescript, Next.js, TailwindCSS and
             React Native. A full list of my skills is available on{' '}
             <Link
-              className='super-link '
+              aria-label='Go to GitHub profile'
+              className='super-link focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
               href='https://github.com/steezydev'
               target='_blank'
             >
@@ -54,7 +58,8 @@ export default function HomePage({ about }: HomePageProps) {
             </Link>{' '}
             or in my{' '}
             <Link
-              className='super-link '
+              aria-label='Go to CV document'
+              className='super-link focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
               href='https://docs.google.com/document/d/11PUbfty_1JoglcKOBdbIpGM-2BmThl-P-3T_51esxFM/edit?usp=sharing'
               target='_blank'
             >
@@ -82,16 +87,25 @@ export default function HomePage({ about }: HomePageProps) {
             free to DM me. Together we can build something remarkable!
           </p>
           <div className='mb-10 mt-8 flex flex-col gap-5 md:flex-row'>
-            <Link href='/contacts'>
-              <Button variant='secondary' className='h-10 w-full md:h-full'>
+            <Link aria-label='Go to contacts page' href='/contacts'>
+              <Button
+                ariaLabel='Go to contacts page'
+                variant='secondary'
+                className='h-10 w-full md:h-full'
+              >
                 Contacts
               </Button>
             </Link>
             <Link
+              aria-label='Go to CV document'
               target='_blank'
               href='https://docs.google.com/document/d/11PUbfty_1JoglcKOBdbIpGM-2BmThl-P-3T_51esxFM/edit?usp=sharing'
             >
-              <Button variant='secondary' className='h-10 w-full md:h-full'>
+              <Button
+                ariaLabel='Go to CV document'
+                variant='secondary'
+                className='h-10 w-full md:h-full'
+              >
                 CV
               </Button>
             </Link>

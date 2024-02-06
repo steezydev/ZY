@@ -26,7 +26,13 @@ export default function ContactsPage({ about }: ContactsPageProps) {
                 Email
               </span>
               <span className='font-display text-xl'>
-                <Link href={`mailto:${about.email}`}>{about.email}</Link>
+                <Link
+                  aria-label='Go to email address'
+                  href={`mailto:${about.email}`}
+                  className='focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
+                >
+                  {about.email}
+                </Link>
               </span>
             </div>
             <div className='mt-5 flex flex-col gap-2'>
@@ -35,7 +41,11 @@ export default function ContactsPage({ about }: ContactsPageProps) {
               </span>
               <div className='flex flex-wrap gap-2'>
                 {about.links.map(({ label, url }: LinkData, key: number) => (
-                  <Bagelink href={url} key={`link-${key}`}>
+                  <Bagelink
+                    ariaLabel={`Go to ${label} page`}
+                    href={url}
+                    key={`link-${key}`}
+                  >
                     {label}
                   </Bagelink>
                 ))}

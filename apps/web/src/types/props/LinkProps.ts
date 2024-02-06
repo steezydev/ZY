@@ -1,6 +1,7 @@
 import { ClassNameProps } from './ClassNameProps';
 
 export interface LinkProps extends ClassNameProps {
+  ariaLabel: string;
   href: string;
   children: React.ReactNode;
   as?: string;

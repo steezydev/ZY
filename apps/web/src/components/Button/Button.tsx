@@ -7,6 +7,7 @@ import { ButtonProps } from '@/types/props/ButtonProps';
 // TODO: Make Unstyled Button and fill and outline variants
 
 const Button = ({
+  ariaLabel,
   children,
   variant = 'primary',
   isLoading = false,
@@ -17,8 +18,10 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
+      aria-label={ariaLabel}
       className={clsxm(
         'group flex min-h-[2.3rem] cursor-pointer items-center justify-center gap-3 rounded-md border-2 border-solid border-white bg-white px-6 py-1 transition-all',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-purple',
         variant == 'primary' &&
           'bg-white backdrop-blur-sm hover:bg-[#3C3C3C06]',
         variant == 'secondary' &&

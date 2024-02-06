@@ -15,7 +15,12 @@ const Link = ({
   isActive,
 }: LinkProps) => {
   return (
-    <NextLink href={href} target={newTab ? '_blank' : '_self'} as={as}>
+    <NextLink
+      className='focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
+      href={href}
+      target={newTab ? '_blank' : '_self'}
+      as={as}
+    >
       <div className='flex items-center'>
         {icon ? (
           <span className='flex items-center text-2xl'>{icon}</span>

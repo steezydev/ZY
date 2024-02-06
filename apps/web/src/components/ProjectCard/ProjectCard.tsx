@@ -19,6 +19,7 @@ function ProjectCard({
       <div className='relative aspect-square h-28'>
         <SkeletonImage
           src={image}
+          alt='Project logo'
           loaderSvg={<ZYLoader height='112px' width='112px' />}
           height={112}
           width={112}

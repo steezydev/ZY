@@ -10,14 +10,25 @@ export default function Footer() {
       <div className='layout flex items-center justify-between font-accent text-xs font-light text-white/50'>
         <div>© {getCurrentYear()} steezy</div>
         <div className='flex gap-4 text-xl md:gap-3'>
-          <Link href='https://github.com/steezydev' target='_blank'>
-            <BsGithub className='h-6 w-6 text-white/50 transition-all hover:text-white' />
+          <Link
+            aria-label='Go to Github profile'
+            href='https://github.com/steezydev'
+            target='_blank'
+          >
+            <BsGithub
+              aria-hidden='true'
+              className='h-6 w-6 text-white/50 transition-all hover:text-white'
+            />
           </Link>
           <Link
+            aria-label='Go to LinkedIn profile'
             href='https://www.linkedin.com/in/ivanilichevv/'
             target='_blank'
           >
-            <BsLinkedin className='h-6 w-6 text-white/50 transition-all hover:text-white' />
+            <BsLinkedin
+              aria-hidden='true'
+              className='h-6 w-6 text-white/50 transition-all hover:text-white'
+            />
           </Link>
         </div>
       </div>

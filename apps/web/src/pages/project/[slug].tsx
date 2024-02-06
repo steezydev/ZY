@@ -29,6 +29,7 @@ export default function Project({ projectData }: ProjectProps) {
       <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <section className='layout'>
           <SkeletonImage
+            alt='Project banner'
             src={getImageUrl(projectData.image).url()}
             fill
             className='relative h-48 w-full'
@@ -37,7 +38,11 @@ export default function Project({ projectData }: ProjectProps) {
           <H1 className='mt-10'>{projectData.title}</H1>
           <div className='mb-6 mt-4 flex flex-wrap gap-2'>
             {projectData.links.map(({ label, url }: LinkData, key: number) => (
-              <Bagelink href={url} key={`link-${key}`}>
+              <Bagelink
+                ariaLabel={`Go to ${label} page`}
+                href={url}
+                key={`link-${key}`}
+              >
                 {label}
               </Bagelink>
             ))}
@@ -48,7 +53,7 @@ export default function Project({ projectData }: ProjectProps) {
               marks: {
                 link: ({ value, children }) => (
                   <Link
-                    className='super-link '
+                    className='super-link focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
                     href={value.href}
                     target='_blank'
                   >
@@ -68,7 +73,7 @@ export default function Project({ projectData }: ProjectProps) {
                   <TechStackItem tooltip={tech.title} key={`tech-${key}`}>
                     <Image
                       src={getImageUrl(tech.icon).url()}
-                      alt='Picture of the author'
+                      alt={tech.title}
                       width={30}
                       height={30}
                     />

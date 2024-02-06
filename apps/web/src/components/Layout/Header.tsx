@@ -48,6 +48,7 @@ export default function Header() {
         <div className='hidden gap-12 border-x-0 border-y border-solid border-white/5 py-3 font-accent text-sm md:flex'>
           {links.map(({ path, name }) => (
             <CustomLink
+              ariaLabel={`Go to ${name} page`}
               isActive={router.pathname === path}
               key={path}
               href={path}
@@ -94,6 +95,7 @@ export default function Header() {
             </div>
             <div className='absolute bottom-28 flex w-full items-center'>
               <Button
+                ariaLabel='Close mobile navigation'
                 onClick={() => setShowNav(false)}
                 variant='secondary'
                 className='layout h-10'

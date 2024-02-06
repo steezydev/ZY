@@ -7,6 +7,7 @@ type ButtonVariant = 'primary' | 'secondary';
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ClassNameProps {
+  ariaLabel: string;
   variant?: ButtonVariant;
   isLoading?: boolean;
   disabled?: boolean;

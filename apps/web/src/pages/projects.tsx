@@ -25,8 +25,9 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
               {projects.map((item: ProjectData, key: number) => (
                 <React.Fragment key={`project-${key}`}>
                   <Link
+                    aria-label={`Go to project ${item.title} page`}
                     href={`/project/${item.slug.current}`}
-                    className='flex flex-col items-center gap-3'
+                    className='flex flex-col items-center gap-3  focus:outline-none focus-visible:ring-2 focus-visible:ring-purple'
                   >
                     <ProjectCard
                       title={item.title}
